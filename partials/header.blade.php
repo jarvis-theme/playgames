@@ -3,7 +3,7 @@
     <div id="sign-up">
       @if( is_login() )
       <div class="account">
-        <a href="{{url::to('member')}}"><img src="{{url(dirTemaToko().'jarvisgames/assets/img/login.png')}}"></a>
+        <a href="{{url::to('member')}}"><img src="{{url(dirTemaToko().'playgames/assets/img/login.png')}}"></a>
       </div>
       <div class="login">
         <ul>
@@ -12,7 +12,7 @@
       </div>
       @else
       <div class="account">
-        <img src="{{url(dirTemaToko().'jarvisgames/assets/img/login.png')}}">
+        <img src="{{url(dirTemaToko().'playgames/assets/img/login.png')}}">
       </div>
       <div class="login">
         <ul>
@@ -31,7 +31,7 @@
     <div class="col-sm-6">
       <div class="logo">
         <a href="{{url('home')}}">
-          {{HTML::image(logo_image_url(), 'jarvisgames')}}
+          {{HTML::image(logo_image_url(), 'playgames')}}
         </a>
       </div>
     </div>
@@ -52,7 +52,7 @@
 
       <li class="search">
         <button class="btn-form">
-          <img src="{{url(dirTemaToko().'jarvisgames/assets/img/zoom.png')}}">
+          <img src="{{url(dirTemaToko().'playgames/assets/img/zoom.png')}}">
         </button>
       </li>
     </ul>

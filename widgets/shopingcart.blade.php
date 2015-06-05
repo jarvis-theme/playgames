@@ -1,7 +1,7 @@
 
 <div class="tabs-chart">
 <div class="joystick">
-  <img src="{{url(dirTemaToko().'jarvisgames/assets/img/joystick.png')}}" class="icon-joystick">
+  <img src="{{url(dirTemaToko().'playgames/assets/img/joystick.png')}}" class="icon-joystick">
 </div>
 <div id="shopping-cart" class="chart">
   <a href="{{url('checkout')}}">

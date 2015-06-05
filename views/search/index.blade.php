@@ -16,7 +16,11 @@
                          @foreach(category_menu() as $key=>$menu)
                             @if($menu->parent=='0')
                                  <li>
-                                    <a href={{category_url($menu)}}>{{$menu->nama}}<i class="vnavright fa fa-caret-right"></i></a>
+                                    <a href={{category_url($menu)}}>{{$menu->nama}}
+                                     @if($menu->anak->count()!=0)
+                                        <i class="vnavright fa fa-caret-right"></i>
+                                    @endif
+                                    </a>
                                     @if($menu->anak->count()!=0)
                                         <ul id="submenu-left">
                                             @foreach($menu->anak as $key => $submenu)
