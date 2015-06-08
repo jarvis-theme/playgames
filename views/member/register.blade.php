@@ -1,3 +1,21 @@
+@if($errors->all())
+<div class="alert alert-error">
+    Kami menemukan error berikut:
+    <ul>
+    @foreach($errors->all() as $message)
+    <li>{{ $message }}</li>
+    @endforeach
+    </ul>
+</div>
+@endif
+
+@if(Session::has('error'))
+    <div class="alert alert-error">
+        <h3>Kami menemukan error berikut:</h3>
+        <p>{{Session::get('error')}}</p>
+    </div>
+@endif
+
 <div class="row">
 <div id="content">
 <div class="tab-title-top">
@@ -7,8 +25,8 @@
 <div class="register-page">
 	<span>Jika anda telah memiliki akun, maka anda dapat langsung menuju <a href="{{url::to('member')}}">halaman login</a></span>
 	{{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}}
-		<table class="col-xs-10">
-			<tr>
+		<table class="col-xs-10 col-md-6">
+			<tr >
 				<td>Nama</td><td><input type="text" class="field-reg" name="nama" value="{{Input::old('nama')}}" required></td>
 			</tr>
 			<tr>

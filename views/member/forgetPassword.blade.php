@@ -24,8 +24,8 @@
 </div>  
 @endif
 
-<div class="container">
-    <div class="inner-column row">
+<div class="row">
+<div id="content">
         <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4 pull-right">
             {{ Theme::partial('subscribe') }}
             <br>
@@ -44,9 +44,7 @@
             <p>Nikmati kemudahan berbelanja dengan mendaftar sebagai member.</p>
             <div class="input-group">
                 <span class="input-group-btn">
-                    <a href="{{URL::to('member/create')}}" class="btn btn-red">Daftar</a>
+                    <a href="{{URL::to('member/create')}}" class="btn btn-success">Daftar</a>
                 </span>
             </div>
         </div>
-    </div>
-</div>

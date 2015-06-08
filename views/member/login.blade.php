@@ -28,7 +28,7 @@
 					<b>Password</b><br>
 					<input type="password" placeholder="Password" name="password" class="large-input">
 					<br>
-					<a href="#" class="forgot">Lupa Password?</a><br>
+					<a href="{{url('member/forget-password')}}" class="forgot">Lupa Password?</a><br>
 					<br>
 					<input type="submit" value="Login" class="btn-login">
 				</div>

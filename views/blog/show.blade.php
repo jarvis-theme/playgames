@@ -6,24 +6,11 @@
         <div class="row">
             <div class="col-sm-3">
                  <div class="left-sidebar">
-                    <ul id="category">
-                        @foreach(category_menu() as $key=>$menu)
-                            @if($menu->parent=='0')
-                                <li>
-                                    <a href={{category_url($menu)}}>{{$menu->nama}}
-                                     @if($menu->anak->count()!=0)
-                                        <i class="vnavright fa fa-caret-right"></i>
-                                    @endif
-                                    </a>
-                                    @if($menu->anak->count()!=0)
-                                        <ul id="submenu-left">
-                                            @foreach($menu->anak as $key => $submenu)
-                                                <li><a href="{{category_url($submenu)}}">{{$submenu->nama}}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </li>
-                            @endif
+                    <ul id="category"> 
+                        @foreach(list_blog_category() as $kat)
+                        <li>
+                            <a href="{{blog_category_url($kat)}}">{{$kat->nama}} </a>
+                        </li>
                         @endforeach
                     </ul>
                 </div>
