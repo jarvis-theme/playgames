@@ -23,10 +23,10 @@
 </div>
 
 <div class="register-page">
-	<span>Jika anda telah memiliki akun, maka anda dapat langsung menuju <a href="{{url::to('member')}}">halaman login</a></span>
+	<span>Jika anda telah memiliki akun, maka anda dapat langsung menuju <a href="{{url('member')}}">halaman login</a></span>
 	{{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}}
 		<table class="col-xs-10 col-md-6">
-			<tr >
+			<tr>
 				<td>Nama</td><td><input type="text" class="field-reg" name="nama" value="{{Input::old('nama')}}" required></td>
 			</tr>
 			<tr>
@@ -71,7 +71,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="checkbox" name="readme" id="inlineCheckbox1" value="1" required=""> Saya telah membaca dan menyetujui 
-				<a href="{{URL::to('service')}}" target="_blank">Persyaratan Member</a></td><td>&nbsp;</td>
+				<a href="{{url('service')}}" target="_blank">Persyaratan Member</a></td><td>&nbsp;</td>
 			</tr>
 			<tr>
 				<td><input type="submit" class="btn-submit" value="Register"></td><td>&nbsp;</td>

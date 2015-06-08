@@ -1659,13 +1659,14 @@ img#imgZoom{
     float: none;
     margin-top: 10px;
   }
-.register-page{
-  padding-right: 20px;
-}
-.btn-success{
-  margin-top: 10px;
-}
+  .register-page{
+    padding-right: 20px;
   }
+  .btn-success{
+    margin-top: 10px;
+  }
+  .fb-share-button {top: -5 !important; margin-top: -5px !important;}
+}
 
 @media screen and (max-width: 321px){
   .left-section #tab-product-new .product-new {
@@ -1676,9 +1677,13 @@ img#imgZoom{
   margin-left: 19px;
 }
 
-
-
-
-
-
-
+.fb_reset {display: inline-block;}
+.fb-share-button {margin: 0px 15px;}
+.sosmed {margin-top: 25px;}
+.side-collection {
+  border-bottom: 1px solid #d6d6d6;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.list-collection {box-shadow: none; background: transparent;}
+.title-collection {padding-left: 15px;}

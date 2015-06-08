@@ -34,8 +34,8 @@ We encountered the following errors:
 <div id="advertising" class="block">
     <div class="title"><h2>My Account</h2></div>
     <ul class="nav">
-        <li><a href="{{URL::to('member')}}">Order History</a></li>                         
-        <li><a href="{{URL::to('member/profile/edit')}}">Edit Profile</a></li>
+        <li><a href="{{url('member')}}">Order History</a></li>                         
+        <li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
     </ul>
 </div>            
 </div>
@@ -88,7 +88,7 @@ We encountered the following errors:
                             </ul>
                         </td>
                         <td class="quantity">
-                            {{ jadiRupiah($item->total) }}
+                            {{ price($item->total) }}
                         </td>
                         <td class="sub-price">
                             {{ $item->noResi }}
@@ -102,13 +102,13 @@ We encountered the following errors:
                             <span class="label label-info">Konfirmasi diterima</span>
                             
                             @elseif($item->status==2)
-                            <span class="label label-success">Pembayaran diterima</span>
+                            <span class="label label-danger">Pembayaran diterima</span>
                             
                             @elseif($item->status==3)
                             <span class="label label-success">Terkirim</span>
                             
                             @elseif($item->status==4)
-                            <span class="label label-danger">Batal</span>
+                            <span class="label label-default">Batal</span>
                             @endif 
                         @else 
                             @if($item->status==0)
@@ -118,19 +118,19 @@ We encountered the following errors:
                             <span class="label label-info">Konfirmasi DP diterima</span>
                             
                             @elseif($item->status==2)
-                            <span class="label label-success">DP terbayar</span>
+                            <span class="label label-info">DP terbayar</span>
                             
                             @elseif($item->status==3)
                             <span class="label label-info">Menunggu pelunasan</span>
                             
                             @elseif($item->status==4)
-                            <span class="label label-success">Pembayaran lunas</span>
+                            <span class="label label-danger">Pembayaran lunas</span>
                             
                             @elseif($item->status==5)
                             <span class="label label-success">Terkirim</span>
                             
                             @elseif($item->status==6)
-                            <span class="label label-danger">Batal</span>
+                            <span class="label label-default">Batal</span>
                             
                             @elseif($item->status==7)
                             <span class="label label-info">Konfirmasi Pelunasan diterima</span>
@@ -140,12 +140,12 @@ We encountered the following errors:
                         <td style="text-align: center;">
                         @if($pengaturan->checkoutType==3) 
                             @if($item->status < 4)
-                            <button onclick="window.open('{{URL::to('konfirmasipreorder/'.$item->id)}}','_blank')" class="btn btn-small btn-success" data-title="Edit" data-placement="top" data-tip="tooltip"><i class="fa fa-check"></i></button>
+                            <button onclick="window.open('{{url('konfirmasipreorder/'.$item->id)}}','_blank')" class="btn btn-small btn-success" data-title="Edit" data-placement="top" data-tip="tooltip"><i class="fa fa-check"></i></button>
                             @endif 
                         @endif
                         @if($pengaturan->checkoutType==1) 
                             @if($item->status <= 1)
-                            <button onclick="window.open('{{URL::to('konfirmasiorder/'.$item->id)}}','_blank')" class="btn btn-small btn-success" data-title="Edit" data-placement="top" data-tip="tooltip"><i class="fa fa-check"></i></button>
+                            <button onclick="window.open('{{url('konfirmasiorder/'.$item->id)}}','_blank')" class="btn btn-small btn-success" data-title="Edit" data-placement="top" data-tip="tooltip"><i class="fa fa-check"></i></button>
                             @endif 
                         @endif
                         </td>
@@ -153,8 +153,8 @@ We encountered the following errors:
                 @endforeach
                 </tbody>
             </table>
-            {{$order->links()}}
             </div>
+            {{$order->links()}}
         @else
             <span> Belum ada data order</span>
         @endif

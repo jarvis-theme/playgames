@@ -13,49 +13,66 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <ul id="category">
-                         @foreach(category_menu() as $key=>$menu)
-                            @if($menu->parent=='0')
-                                 <li>
-                                    <a href={{category_url($menu)}}>{{$menu->nama}}
-                                     @if($menu->anak->count()!=0)
-                                        <i class="vnavright fa fa-caret-right"></i>
-                                    @endif
-                                    </a>
-                                    @if($menu->anak->count()!=0)
+                    @foreach(list_category() as $side_menu)
+                        @if($side_menu->parent == '0')
+                        <li>
+                            <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
+                            @if($side_menu->anak->count() != 0)
+                            <ul id="submenu-left">
+                                @foreach($side_menu->anak as $submenu)
+                                    @if($submenu->parent == $side_menu->id)
+                                    <li>
+                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
-                                            @foreach($menu->anak as $key => $submenu)
-                                                <li><a href="{{category_url($submenu)}}">{{$submenu->nama}}</a></li>
+                                            @foreach($submenu->anak as $submenu2)
+                                            @if($submenu2->parent == $submenu->id)
+                                            <li>
+                                                <a href="{{category_url($submenu2)}}">{{$submenu2->nama}}</a>
+                                            </li>
+                                            @endif
                                             @endforeach
                                         </ul>
+                                        @endif
+                                    </li>
                                     @endif
-                                </li>
+                                @endforeach
+                            </ul>
                             @endif
-                        @endforeach
+                        </li>
+                        @endif
+                    @endforeach
                     </ul>
                 </div>
+                @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
                         <h1>New Produk</h1>
                     </div>
                     <div class="product">
                         <ul id="tab-product-new">
-                            @foreach(new_product() as $newproduk )
-                                <li>
-                                    <div class="product-new">
-                                        <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
-                                        <div class="tab-product-name">
-                                            <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
-                                        </div>
-                                        <div class="tab-price">
-                                            <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
+                        @foreach(new_product() as $newproduk )
+                        <li>
+                            <div class="product-new">
+                                <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
+                                <div class="tab-product-name">
+                                    <h3 class="product-name">
+                                        <a href="{{product_url($newproduk)}}">
+                                            {{short_description($newproduk->nama,12)}}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="tab-price">
+                                    <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
                         </ul>
                         <a href="{{url('produk')}}" class="link-more-product">View More</a>
                     </div>
-                </div><!-- end left section -->
+                </div>
+                @endif
                 <div class="left-section">
                     <div class="header-left-section">
                         <h1>Artikel</h1>
@@ -86,14 +103,11 @@
                                 <div class="tab-title">
                                     <h2>{{short_description($listproduk->nama,22)}}</h2>
                                     <h3><strong>{{price($listproduk->hargaJual)}}</strong></h3>
-                                    <a href="{{product_url($listproduk)}}" class="add-chart">Add to Chart</a>
+                                    <a href="{{product_url($listproduk)}}" class="add-chart">Lihat</a>
                                 </div>
                                 </div>
                             </div>
                             @endforeach
-                        </div>
-                        <div class="row">
-                           
                         </div>
                         {{$hasilpro->links()}}
                     @endif

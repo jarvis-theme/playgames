@@ -7,26 +7,38 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <ul id="category">
-                        @foreach(category_menu() as $key=>$menu)
-                            @if($menu->parent=='0')
-                                <li>
-                                    <a href={{category_url($menu)}}>{{$menu->nama}}
-                                     @if($menu->anak->count()!=0)
-                                        <i class="vnavright fa fa-caret-right"></i>
-                                    @endif
-                                    </a>
-                                    @if($menu->anak->count()!=0)
+                    @foreach(list_category() as $side_menu)
+                        @if($side_menu->parent == '0')
+                        <li>
+                            <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
+                            @if($side_menu->anak->count() != 0)
+                            <ul id="submenu-left">
+                                @foreach($side_menu->anak as $submenu)
+                                    @if($submenu->parent == $side_menu->id)
+                                    <li>
+                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
-                                            @foreach($menu->anak as $key => $submenu)
-                                                <li><a href="{{category_url($submenu)}}">{{$submenu->nama}}</a></li>
+                                            @foreach($submenu->anak as $submenu2)
+                                            @if($submenu2->parent == $submenu->id)
+                                            <li>
+                                                <a href="{{category_url($submenu2)}}">{{$submenu2->nama}}</a>
+                                            </li>
+                                            @endif
                                             @endforeach
                                         </ul>
+                                        @endif
+                                    </li>
                                     @endif
-                                </li>
+                                @endforeach
+                            </ul>
                             @endif
-                        @endforeach
+                        </li>
+                        @endif
+                    @endforeach
                     </ul>
                 </div>
+                @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
                         <h1>New Produk</h1>
@@ -49,7 +61,25 @@
                         </ul>
                         <a href="{{url('produk')}}" class="link-more-product">View More</a>
                     </div>
-                </div><!-- end left section -->
+                </div>
+                @endif
+
+                <div class="left-section list-collection">
+                    <h5 class="col-xs-12 col-sm-12">Koleksi</h5>
+                    @foreach (list_koleksi() as $kol)
+                    <div class="side-collection">
+                        <div class="col-xs-4 col-sm-4">
+                            <a href="{{koleksi_url($kol)}}">
+                                {{ HTML::image(koleksi_image_url($kol->gambar,'thumb'),$kol->nama, array('class' => 'img-responsive','width'=>'80','height'=>'80' ))}}
+                            </a>
+                        </div>
+                        <div class="col-xs-8 col-sm-8">
+                            <a href="{{koleksi_url($kol)}}">{{$kol->nama}}</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
             <div class="col-sm-9">
                 <div class="row">
@@ -60,31 +90,38 @@
                                     <div class="zoom-caption">
                                         <img id="imgZoom" src="{{product_image_url($produk->gambar1)}}" data-zoom-image="{{product_image_url($produk->gambar1)}}">
                                     </div>
+                                    <br>
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="tabs-caption">
                                         <h2>Screenshoot</h2>
                                         <div id="product_detail">
                                             <ul class="caption-thumbnail">
+                                                @if($produk->gambar1 != '')
+                                                    <li>
+                                                        <a href="{{product_image_url($produk->gambar1)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar1)}}" data-zoom-image="{{product_image_url($produk->gambar1)}}">
+                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar1,'thumb')}}" width="100"></a>
+                                                    </li>
+                                                @endif
                                                 @if($produk->gambar2 != '')
                                                     <li>
                                                         <a href="{{product_image_url($produk->gambar2)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar2)}}" data-zoom-image="{{product_image_url($produk->gambar2)}}">
-                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar2)}}" width="100"></a>
+                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar2,'thumb')}}" width="100"></a>
                                                     </li>
                                                 @endif
                                                 @if($produk->gambar3 != '')
                                                     <li>
                                                         <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar3)}}" data-zoom-image="{{product_image_url($produk->gambar3)}}">
-                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar3)}}" width="100"></a>
+                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar3,'thumb')}}" width="100"></a>
                                                     </li>
                                                 @endif
                                                 @if($produk->gambar4 != '')
                                                     <li>
                                                         <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar4)}}" data-zoom-image="{{product_image_url($produk->gambar4)}}">
-                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar4)}}" width="100"></a>
+                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar4,'thumb')}}" width="100"></a>
                                                     </li>
                                                 @endif
-                                            </ul>                                                                                       
+                                            </ul>
                                         </div>
                                         <div class="tab-quantity">
                                             @if($opsiproduk->count() > 0)
@@ -93,7 +130,7 @@
                                                   <select>
                                                     <option value="">-- Pilih Opsi --</option>
                                                     @foreach ($opsiproduk as $key => $opsi)
-                                                     <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}}>{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{jadiRupiah($opsi->harga)}}</option>
+                                                     <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}}>{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}</option>
                                                     @endforeach
                                                   </select>
                                                 </div>
@@ -101,9 +138,9 @@
                                         </div>
                                         <div class="tab-quantity">
                                             <h3>Quantity :</h3>
-                                            <button type='submit' class='qtyminus' field='quantity' /><i class="fa fa-caret-left"></i></button>
+                                            <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
                                             <input type='text' name='qty' value='0' class='qty' />
-                                            <button type='button' value='+' class='qtyplus' field='quantity' /><i class="fa fa-caret-right"></i></button>
+                                            <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
                                         </div>
                                         <div class="avalaible-text">
                                             @if($produk->stok > 0)
@@ -112,8 +149,11 @@
                                                 </span>
                                                 <span>Avalaible Stok, <span class="text-color">{{$produk->stok}} item</span></span>
                                             @else
-                                                <span class="text-color">No Avalaible</span>
+                                                <span class="text-color">Out of stock</span>
                                             @endif
+                                        </div>
+                                        <div class="sosmed">
+                                            {{sosialShare(product_url($produk))}}
                                         </div>
                                     </div>
                                 </div>
@@ -148,30 +188,28 @@
                                 <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
                             @endif
                             <div class="tab-btn"> 
-                                <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'jarvisgames/assets/img/checkout.png')}}">ADD TO CHART</button>
+                                <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}">ADD TO CHART</button>
                             </div>
                         </div>
                     </form>
+                        @if(count(other_product($produk)) > 0)
                         <div class="related-post">
                             <div class="row">
-                                @if(count($produklain) > 0)
-                                    @foreach($produklain as $relproduk)
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <div class="post">
+                                @foreach(other_product($produk) as $relproduk)
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="post">
+                                        <a href="{{product_url($relproduk)}}">
                                             <img src="{{product_image_url($relproduk->gambar1)}}">
-                                            <h2>{{shortDescription($relproduk->nama,22)}}</h2>
-                                            <h3><strong>{{price($relproduk->hargaJual)}}</strong></h3>
-                                            <a href="{{product_url($relproduk)}}" class="add-chart">Add to Chart</a>
-                                        </div>
+                                        </a>
+                                        <h2>{{shortDescription($relproduk->nama,22)}}</h2>
+                                        <h3><strong>{{price($relproduk->hargaJual)}}</strong></h3>
+                                        <a href="{{product_url($relproduk)}}" class="add-chart">Lihat</a>
                                     </div>
-                                    @endforeach
-                                 @else
-                                <article class="text-center">
-                                <i>Produk tidak ditemukan</i>
-                                </article>
-                                @endif
+                                </div>
+                                @endforeach
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

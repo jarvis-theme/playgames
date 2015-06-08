@@ -1,17 +1,17 @@
 @if(Session::has('errorlogin'))
-    <div class="error" id='message' style='display:none'>
-        <p>Maaf, email atau password anda salah.</p>
-    </div>
+<div class="error" id='message' style='display:none'>
+    <p>Maaf, email atau password anda salah.</p>
+</div>
 @endif
 @if(Session::has('error'))
-    <div class="error" id='message' style='display:none'>
-        {{Session::get('error')}}!!!
-    </div>
+<div class="error" id='message' style='display:none'>
+    {{Session::get('error')}}!!!
+</div>
 @endif
 @if(Session::has('errorrecovery'))
-    <div class="error" id='message' style='display:none'>
-        <p>Maaf, email anda tidak ditemukan.</p>
-    </div>
+<div class="error" id='message' style='display:none'>
+    <p>Maaf, email anda tidak ditemukan.</p>
+</div>
 @endif
 @if(Session::has('forget'))
 <div class="success" id='message' style='display:none'>
@@ -44,7 +44,7 @@
             <p>Nikmati kemudahan berbelanja dengan mendaftar sebagai member.</p>
             <div class="input-group">
                 <span class="input-group-btn">
-                    <a href="{{URL::to('member/create')}}" class="btn btn-success">Daftar</a>
+                    <a href="{{url('member/create')}}" class="btn btn-success">Daftar</a>
                 </span>
             </div>
         </div>

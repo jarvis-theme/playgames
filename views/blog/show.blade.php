@@ -14,6 +14,7 @@
                         @endforeach
                     </ul>
                 </div>
+                @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
                         <h1>New Produk</h1>
@@ -21,27 +22,28 @@
                     <div class="product">
                         <ul id="tab-product-new">
                             @foreach(new_product() as $newproduk )
-                                <li>
-                                    <div class="product-new">
-                                        <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
-                                        <div class="tab-product-name">
-                                            <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
-                                        </div>
-                                        <div class="tab-price">
-                                            <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
-                                        </div>
+                            <li>
+                                <div class="product-new">
+                                    <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
+                                    <div class="tab-product-name">
+                                        <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
                                     </div>
-                                </li>
+                                    <div class="tab-price">
+                                        <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
+                                    </div>
+                                </div>
+                            </li>
                             @endforeach
                         </ul>
                         <a href="{{url('produk')}}" class="link-more-product">View More</a>
                     </div>
-                </div><!-- end left section -->
+                </div>
+                @endif
                 <div class="left-section">
                     <div class="header-left-section">
                         <h1>Artikel</h1>
                     </div>
-                    @foreach(list_blog(5) as $artikel)
+                    @foreach(recentBlog(null,5) as $artikel)
                         <div class="product">
                             <div class="tips-post">
                                 <h3><a href="{{blog_url($artikel)}}">{{short_description($artikel->judul, 20)}}</a></h3>
@@ -50,7 +52,8 @@
                             </div>
                         </div>
                     @endforeach
-                </div><!-- end left section -->
+                </div>
+                @if(count(vertical_banner()) > 0)
                 <div class="banner-left">
                     @foreach(vertical_banner() as $banners)
                         <a href="{{URL::to($banners->url)}}">
@@ -58,7 +61,7 @@
                         </a>
                     @endforeach
                 </div>
-                <!-- end banner -->
+                @endif
                 {{ Theme::partial('subscribe') }}
             </div>
             <div class="col-sm-9">
@@ -72,9 +75,11 @@
                                 <hr>
                                 <h3>{{$detailblog->judul}}</h3>
                                 <p>
-                                <small><i class="fa fa-calendar"></i>{{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
-                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
+                                    <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
+                                    <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
                                 </p>
+                                {{sosialShare(blog_url($detailblog))}}
+                                <br>
                                 <p>{{$detailblog->isi}}</p>
                             </article>
                             <hr>

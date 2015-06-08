@@ -116,12 +116,10 @@
 
         $('.list').click(function() {
             get_list();
-            
         });
 
         $('.grid').click(function() {
             get_grid();
-            
         });
 
     //grid to list product single
@@ -146,13 +144,9 @@
 
         $('.list_product').click(function() {
             get_list_product();
-            
         });
 
         $('.grid_product').click(function() {
             get_grid_product();
-            
         });
-        $('.sidey .sidenav').navgoco();
-
 });

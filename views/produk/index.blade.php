@@ -12,27 +12,39 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
-                    <ul id="category">
-                        @foreach(category_menu() as $key=>$menu)
-                            @if($menu->parent=='0')
-                                <li>
-                                    <a href={{category_url($menu)}}>{{$menu->nama}}
-                                     @if($menu->anak->count()!=0)
-                                    <i class="vnavright fa fa-caret-right"></i>
-                                    @endif
-                                    </a>
-                                    @if($menu->anak->count()!=0)
-                                        <ul id="submenu-left">
-                                            @foreach($menu->anak as $key => $submenu)
-                                                <li><a href="{{category_url($submenu)}}">{{$submenu->nama}}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </li>
+                        <ul id="category">
+                        @foreach(list_category() as $side_menu)
+                            @if($side_menu->parent == '0')
+                            <li>
+                                <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
+                                @if($side_menu->anak->count() != 0)
+                                <ul id="submenu-left">
+                                    @foreach($side_menu->anak as $submenu)
+                                        @if($submenu->parent == $side_menu->id)
+                                        <li>
+                                            <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                            @if($submenu->anak->count() != 0)
+                                            <ul id="submenu-left">
+                                                @foreach($submenu->anak as $submenu2)
+                                                @if($submenu2->parent == $submenu->id)
+                                                <li>
+                                                    <a href="{{category_url($submenu2)}}">{{$submenu2->nama}}</a>
+                                                </li>
+                                                @endif
+                                                @endforeach
+                                            </ul>
+                                            @endif
+                                        </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                                @endif
+                            </li>
                             @endif
                         @endforeach
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                    @if(count(new_product()) > 0)
                     <div class="left-section">
                         <div class="header-left-section">
                             <h1>New Produk</h1>
@@ -40,22 +52,23 @@
                         <div class="product">
                             <ul id="tab-product-new">
                                 @foreach(new_product() as $newproduk )
-                                    <li>
-                                        <div class="product-new">
-                                            <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
-                                            <div class="tab-product-name">
-                                                <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
-                                            </div>
-                                            <div class="tab-price">
-                                                <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
-                                            </div>
+                                <li>
+                                    <div class="product-new">
+                                        <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
+                                        <div class="tab-product-name">
+                                            <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
                                         </div>
-                                    </li>
+                                        <div class="tab-price">
+                                            <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
+                                        </div>
+                                    </div>
+                                </li>
                                 @endforeach
                             </ul>
                             <a href="{{url('produk')}}" class="link-more-product">View More</a>
                         </div>
-                    </div><!-- end left section -->
+                    </div>
+                    @endif
                     <div class="left-section">
                         <div class="header-left-section">
                             <h1>Artikel</h1>
@@ -69,37 +82,59 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div><!-- end left section -->
+                    </div>
+                    <div class="left-section list-collection">
+                        <h5 class="col-xs-12 col-sm-12">Koleksi</h5>
+                        @foreach (list_koleksi() as $kol)
+                        <div class="side-collection">
+                            <div class="col-xs-4 col-sm-4">
+                                <a href="{{koleksi_url($kol)}}">
+                                    {{ HTML::image(koleksi_image_url($kol->gambar,'thumb'),$kol->nama, array('class' => 'img-responsive','width'=>'80','height'=>'80' ))}}
+                                </a>
+                            </div>
+                            <div class="col-xs-8 col-sm-8">
+                                <a href="{{koleksi_url($kol)}}">{{$kol->nama}}</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        @endforeach
+                    </div>
+                    @if(count(vertical_banner()) > 0)
                     <div class="banner-left">
                         @foreach(vertical_banner() as $banners)
-                            <a href="{{URL::to($banners->url)}}">
+                            <a href="{{url($banners->url)}}">
                                 {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'386'))}}
                             </a>
                         @endforeach
                     </div>
-                    <!-- end banner -->
+                    @endif
                     {{ Theme::partial('subscribe') }}
                 </div>
                 <div class="col-sm-9">
                     <div class="row">
+                        @if(count(list_product(null, @$category, @$collection)) > 0)
                         <div id="single-categories">
-                            @foreach(list_product(null, @$category) as $listproduk)
-                                <div class="list col-md-3 col-sm-6 col-xs-12">
-                                    <div class="post-category">
+                            @foreach(list_product(null, @$category, @$collection) as $listproduk)
+                            <div class="list col-md-3 col-sm-6 col-xs-12">
+                                <div class="post-category">
+                                    <a href="{{product_url($listproduk)}}">
                                         {{HTML::image(product_image_url($listproduk->gambar1))}}
-                                        <div class="tab-title">
-                                            <h2>{{short_description($listproduk->nama,22)}}</h2>
-                                            <h3><strong>{{price($listproduk->hargaJual)}}</strong></h3>
-                                            <a href="{{product_url($listproduk)}}" class="add-chart">Add to Chart</a>
-                                        </div>
+                                    </a>
+                                    <div class="tab-title">
+                                        <h2>{{short_description($listproduk->nama,22)}}</h2>
+                                        <h3><strong>{{price($listproduk->hargaJual)}}</strong></h3>
+                                        <a href="{{product_url($listproduk)}}" class="add-chart">Lihat</a>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
-                        <div class="row">
-                            
-                        </div>
-                        {{list_product(16)->links()}}
+                        {{list_product(null, @$category, @$collection)->links()}}
+                        @else
+                        <article class="text-center">
+                            <i>Produk tidak ditemukan</i>
+                        </article>
+                        @endif
                     </div>
                 </div>
             </div>

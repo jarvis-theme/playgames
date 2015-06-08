@@ -5,16 +5,16 @@
 </div>
 <div class="row">
     <div class="col-sm-3">
-         <div class="left-sidebar">
-                    <ul id="category"> 
-                        @foreach(list_blog_category() as $kat)
-                        <li>
-                            <a href="{{blog_category_url($kat)}}">{{$kat->nama}} </a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-          <!-- end left-sidebar-->
+        <div class="left-sidebar">
+            <ul id="category"> 
+                @foreach(list_blog_category() as $kat)
+                <li>
+                    <a href="{{blog_category_url($kat)}}">{{$kat->nama}} </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        @if(count(new_product()) > 0)
         <div class="left-section">
             <div class="header-left-section">
                 <h1>New Produk</h1>
@@ -37,21 +37,23 @@
                 </ul>
                 <a href="{{url('produk')}}" class="link-more-product">View More</a>
             </div>
-        </div><!-- end left section -->
+        </div>
+        @endif
         <div class="left-section">
             <div class="header-left-section">
                 <h1>Artikel</h1>
             </div>
-            @foreach(list_blog(5) as $artikel)
-                <div class="product">
-                    <div class="tips-post">
-                        <h3><a href="{{blog_url($artikel)}}">{{short_description($artikel->judul, 20)}}</a></h3>
-                        <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Read More</a></p>
-                        <span class="date">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
-                    </div>
+            @foreach(recentBlog(null,5) as $artikel)
+            <div class="product">
+                <div class="tips-post">
+                    <h3><a href="{{blog_url($artikel)}}">{{short_description($artikel->judul, 20)}}</a></h3>
+                    <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Read More</a></p>
+                    <span class="date">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
                 </div>
+            </div>
             @endforeach
-        </div><!-- end left section -->
+        </div>
+        @if(count(vertical_banner()) > 0)
         <div class="banner-left">
             @foreach(vertical_banner() as $banners)
                 <a href="{{URL::to($banners->url)}}">
@@ -59,9 +61,8 @@
                 </a>
             @endforeach
         </div>
-        <!-- end banner -->
-         {{ Theme::partial('subscribe') }}
-
+        @endif
+        {{ Theme::partial('subscribe') }}
     </div>
     <div class="col-sm-9">
         <div class="row">
@@ -70,27 +71,25 @@
                     <h1>Blog</h1>
                 </div>
                 <div class="tabs-description">
-                    @if(count(list_blog(5,@$blog_category)) > 0)
-                        @foreach(list_blog(5,@$blog_category) as $blog)
+                    @if(count(list_blog(null,@$blog_category)) > 0)
+                        @foreach(list_blog(null,@$blog_category) as $blogs)
                             <article class="col-lg-12" style="margin-bottom:10px">
                                 <hr>
-                                <h3>{{$blog->judul}}</h3>
+                                <h3>{{$blogs->judul}}</h3>
                                 <p>
-                                <small><i class="fa fa-calendar"></i> {{waktuTgl($blog->updated_at)}}</small>&nbsp;&nbsp;
-                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog->kategori)}}">{{@$blog->kategori->nama}}</a></span>
+                                <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
+                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
                                 </p>
                                 <p>
-                                {{shortDescription($blog->isi,300)}}<br>
-                                <a href="{{blog_url($blog)}}" class="theme">Baca Selengkapnya →</a>
+                                {{shortDescription($blogs->isi,300)}}<br>
+                                <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>
                                 </p>
                             </article>
                         @endforeach
-                        <div class="pagination">
-                            {{list_blog(5,@$blog_category)->links()}}
-                        </div>
+                        {{list_blog(null,@$blog_category)->links()}}
                     @else
                         <article style="font-style:italic; text-align:center;">
-                            <small>Blog tidak ditemukan.</small>
+                            Blog tidak ditemukan.
                         </article>
                     @endif
                 </div>

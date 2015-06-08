@@ -1,10 +1,11 @@
-<div class="row">
-<div id="content">
 @if(Session::has('success'))
 <div class="success" id='message' style='display:none'>
-	<p>Terima kasih, konfirmasi anda sudah terkirim.</p>					
+	<p>Terima kasih, konfirmasi anda sudah terkirim.</p>
 </div>		
 @endif
+
+<div class="row">
+<div id="content">
 
 <div class="register-page">
 	

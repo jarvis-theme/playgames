@@ -8,8 +8,8 @@
 			<div class="contact-form">
 				<p>Silakan masukkan kode order yang mau anda cari!</p>
 				{{Form::open(array('url'=>'konfirmasiorder','method'=>'post','class'=>'form-inline'))}}
-				<input style="float:left;" type="text" class="form-control" placeholder=" Kode Order" name='kodeorder' required>
-				<button type="submit" style="margin-left:10px;" class="btn btn-success"><span> Cari Kode</span></button>
+					<input style="float:left;" type="text" class="form-control" placeholder=" Kode Order" name='kodeorder' required>
+					<button type="submit" style="margin-left:10px;" class="btn btn-success"><span> Cari Kode</span></button>
 				{{Form::close()}}
 			</div>
 		</div>

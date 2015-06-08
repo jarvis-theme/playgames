@@ -11,4 +11,4 @@
 <meta name="DC.Title" content="{{$title}}">
 <meta name="DC.Subject" content="{{$keywords}}">
 <meta name="DC.Description" content="{{$description}}">
-<link rel="callisto-theme" href="{{dirTemaToko()}}callisto/">
+<link rel="playgames-theme" href="{{dirTemaToko()}}playgames/">

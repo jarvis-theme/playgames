@@ -5,10 +5,10 @@
         <img src="{{url(dirTemaToko().'playgames/assets/img/mail.png')}}" class="mail">
         <form action="{{@$mailing->action}}" method="post" class="subscribe">
             <div class="form">
-                <input type="text" name="email" class="email" {{ @$mailing->action==''?'disabled="disabled"':'' }} placeholder="Enter your email" name="EMAIL" class="input-medium required email" id="newsletter mce-EMAIL">
+                <input type="text" name="email" class="email" placeholder="Enter your email" name="EMAIL" class="input-medium required email" id="newsletter mce-EMAIL" {{ @$mailing->action==''?'disabled="disabled"':'' }}>
             </div>
             <div class="btn">
-                <button type="submit" class="btn-submit" {{ @$mailing->action==''?'disabled="disabled"':'' }}>Subscribe</button>
+                <button type="submit" class="btn-submit" {{ @$mailing->action==''?'disabled="disabled" style="opacity: 0.5; cursor: default;"':'' }}>Subscribe</button>
             </div>
         </form>
     </div>

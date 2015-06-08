@@ -7,24 +7,35 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <ul id="category">
-                        @foreach(category_menu() as $key=>$menu)
-                            @if($menu->parent=='0')
-                                <li>
-                                    <a href={{category_url($menu)}}>{{$menu->nama}}
-                                     @if($menu->anak->count()!=0)
-                                        <i class="vnavright fa fa-caret-right"></i>
-                                    @endif
-                                    </a>
-                                    @if($menu->anak->count()!=0)
+                    @foreach(list_category() as $side_menu)
+                        @if($side_menu->parent == '0')
+                        <li>
+                            <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
+                            @if($side_menu->anak->count() != 0)
+                            <ul id="submenu-left">
+                                @foreach($side_menu->anak as $submenu)
+                                    @if($submenu->parent == $side_menu->id)
+                                    <li>
+                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
-                                            @foreach($menu->anak as $key => $submenu)
-                                                <li><a href="{{category_url($submenu)}}">{{$submenu->nama}}</a></li>
+                                            @foreach($submenu->anak as $submenu2)
+                                            @if($submenu2->parent == $submenu->id)
+                                            <li>
+                                                <a href="{{category_url($submenu2)}}">{{$submenu2->nama}}</a>
+                                            </li>
+                                            @endif
                                             @endforeach
                                         </ul>
+                                        @endif
+                                    </li>
                                     @endif
-                                </li>
+                                @endforeach
+                            </ul>
                             @endif
-                        @endforeach
+                        </li>
+                        @endif
+                    @endforeach
                     </ul>
                 </div>
                 <div class="left-section">

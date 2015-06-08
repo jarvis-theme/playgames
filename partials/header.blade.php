@@ -3,11 +3,11 @@
     <div id="sign-up">
       @if( is_login() )
       <div class="account">
-        <a href="{{url::to('member')}}"><img src="{{url(dirTemaToko().'playgames/assets/img/login.png')}}"></a>
+        <a href="{{url('member')}}"><img src="{{url(dirTemaToko().'playgames/assets/img/login.png')}}"></a>
       </div>
       <div class="login">
         <ul>
-          <li><a href="{{url::to('logout')}}">Logout </a></li>
+          <li><a href="{{url('logout')}}">Logout </a></li>
         </ul>
       </div>
       @else
@@ -16,8 +16,8 @@
       </div>
       <div class="login">
         <ul>
-          <li><a href="{{url::to('member')}}">Login |</a></li>
-          <li><a href="{{url::to('member/create')}}"> Sign up </a></li>
+          <li><a href="{{url('member')}}">Login |</a></li>
+          <li><a href="{{url('member/create')}}"> Sign up </a></li>
         </ul>
       </div>
       @endif
@@ -31,12 +31,14 @@
     <div class="col-sm-6">
       <div class="logo">
         <a href="{{url('home')}}">
-          {{HTML::image(logo_image_url(), 'playgames')}}
+          {{HTML::image(logo_image_url())}}
         </a>
       </div>
     </div>
-    <div class="col-sm-4 col-sm-offset-2">
-      {{shopping_cart()}}
+    <div id="shopping-cart" class="col-sm-4 col-sm-offset-2">
+      <div id="shoppingcartplace">
+        {{shopping_cart()}}
+      </div>
     </div>
   </div>
 </div>
@@ -46,8 +48,12 @@
   <div id="menus">
     <button id="btn-slide" class="btn-hamburger"><i class="fa fa-bars"></i></button>
     <ul id="menus-top-section">
+      {{--*/ $i=0 /*--}}
       @foreach(main_menu()->link as $key=>$link)
-      <li><a href="{{menu_url($link)}}">{{$link->nama}}</a></li>
+        @if($i >= 0 && $i < 6)
+        <li><a href="{{menu_url($link)}}">{{$link->nama}}</a></li>
+        @endif
+        {{--*/ $i += 1 /*--}}
       @endforeach
 
       <li class="search">

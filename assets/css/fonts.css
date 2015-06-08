@@ -12,8 +12,8 @@
   font-family: 'Helvetica';
   src: url('../fonts/HelveticaLTStd-Bold.eot'); /* IE9 Compat Modes */
   src: url('../fonts/HelveticaLTStd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/HelveticaLTStd-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/HelveticaLTStd-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       /*url('../fonts/HelveticaLTStd-Bold.woff2') format('woff2'),*/ /* Super Modern Browsers */
+       /*url('../fonts/HelveticaLTStd-Bold.woff') format('woff'),*/ /* Pretty Modern Browsers */
        url('../fonts/HelveticaLTStd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('../fonts/HelveticaLTStd-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
