@@ -10,7 +10,11 @@
                     @foreach(list_category() as $side_menu)
                         @if($side_menu->parent == '0')
                         <li>
-                            <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
+                            <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}
+                            @if($side_menu->anak->count() != 0)
+                            <i class="vnavright fa fa-caret-right"></i>
+                            @endif
+                            </a>
                             @if($side_menu->anak->count() != 0)
                             <ul id="submenu-left">
                                 @foreach($side_menu->anak as $submenu)
@@ -47,9 +51,15 @@
                             @foreach(new_product() as $newproduk )
                                 <li>
                                     <div class="product-new">
-                                        <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
+                                        <a href="{{product_url($newproduk)}}">
+                                            {{HTML::image(product_image_url($newproduk->gambar1))}}
+                                        </a>
                                         <div class="tab-product-name">
-                                            <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
+                                            <h3 class="product-name">
+                                                <a href="{{product_url($newproduk)}}">
+                                                    {{short_description($newproduk->nama,55)}}
+                                                </a>
+                                            </h3>
                                         </div>
                                         <div class="tab-price">
                                             <h3 class="price">{{price($newproduk->hargaJual)}}</h3>

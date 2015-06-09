@@ -24,9 +24,15 @@
                     @foreach(new_product() as $newproduk )
                     <li>
                         <div class="product-new">
-                            <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
+                            <a href="{{product_url($newproduk)}}">
+                                {{HTML::image(product_image_url($newproduk->gambar1))}}
+                            </a>
                             <div class="tab-product-name">
-                                <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
+                                <h3 class="product-name">
+                                    <a href="{{product_url($newproduk)}}">
+                                        {{short_description($newproduk->nama,55)}}
+                                    </a>
+                                </h3>
                             </div>
                             <div class="tab-price">
                                 <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
@@ -77,12 +83,12 @@
                                 <hr>
                                 <h3>{{$blogs->judul}}</h3>
                                 <p>
-                                <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
-                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
+                                    <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
+                                    <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
                                 </p>
                                 <p>
-                                {{shortDescription($blogs->isi,300)}}<br>
-                                <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>
+                                    {{shortDescription($blogs->isi,300)}}<br>
+                                    <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>
                                 </p>
                             </article>
                         @endforeach

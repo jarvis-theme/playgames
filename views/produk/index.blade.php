@@ -16,7 +16,12 @@
                         @foreach(list_category() as $side_menu)
                             @if($side_menu->parent == '0')
                             <li>
-                                <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
+                                <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}
+                                @if($side_menu->anak->count() != 0)
+                                <i class="vnavright fa fa-caret-right"></i>
+                                @endif
+                                </a>
+
                                 @if($side_menu->anak->count() != 0)
                                 <ul id="submenu-left">
                                     @foreach($side_menu->anak as $submenu)
@@ -54,9 +59,15 @@
                                 @foreach(new_product() as $newproduk )
                                 <li>
                                     <div class="product-new">
-                                        <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
+                                        <a href="{{product_url($newproduk)}}">
+                                            {{HTML::image(product_image_url($newproduk->gambar1))}}
+                                        </a>
                                         <div class="tab-product-name">
-                                            <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
+                                            <h3 class="product-name">
+                                                <a href="{{product_url($newproduk)}}">
+                                                    {{short_description($newproduk->nama,55)}}
+                                                </a>
+                                            </h3>
                                         </div>
                                         <div class="tab-price">
                                             <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
@@ -117,12 +128,24 @@
                             @foreach(list_product(null, @$category, @$collection) as $listproduk)
                             <div class="list col-md-3 col-sm-6 col-xs-12">
                                 <div class="post-category">
+                                    @if(is_outstok($listproduk))
+                                        <div class="item-icon"><span class="label label-default">KOSONG</span></div>
+                                    @else
+                                        @if(is_terlaris($listproduk))
+                                        <div class="item-icon"><span class="label label-danger">HOT ITEM</span></div>
+                                        @elseif(is_produkbaru($listproduk))
+                                        <div class="item-icon"><span class="label label-info">BARU</span></div>
+                                        @endif
+                                    @endif
                                     <a href="{{product_url($listproduk)}}">
                                         {{HTML::image(product_image_url($listproduk->gambar1))}}
                                     </a>
                                     <div class="tab-title">
-                                        <h2>{{short_description($listproduk->nama,22)}}</h2>
-                                        <h3><strong>{{price($listproduk->hargaJual)}}</strong></h3>
+                                        <h2>{{short_description($listproduk->nama,75)}}</h2>
+                                        @if(!empty($listproduk->hargaCoret))
+                                        <h2><strike>{{price($listproduk->hargaCoret)}}</strike></h2>
+                                        @endif
+                                        <h2 class="price"><strong>{{price($listproduk->hargaJual)}}</strong></h2>
                                         <a href="{{product_url($listproduk)}}" class="add-chart">Lihat</a>
                                     </div>
                                 </div>

@@ -115,10 +115,17 @@
             </div>
           </a>
           @endif
-           @if(!empty($kontak->tl))
+          @if(!empty($kontak->tl))
           <a href="{{url($kontak->tl)}}">
             <div class="icon">
               <i class="fa fa-tumblr"></i>
+            </div>
+          </a>
+          @endif
+          @if(!empty($kontak->ig))
+          <a href="{{url($kontak->ig)}}">
+            <div class="icon">
+              <i class="fa fa-instagram"></i>
             </div>
           </a>
           @endif

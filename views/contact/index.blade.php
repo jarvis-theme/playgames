@@ -31,7 +31,11 @@
                     @foreach(list_category() as $side_menu)
                         @if($side_menu->parent == '0')
                         <li>
-                            <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}</a>
+                            <a href="{{category_url($side_menu)}}">{{$side_menu->nama}}
+                            @if($side_menu->anak->count() != 0)
+                            <i class="vnavright fa fa-caret-right"></i>
+                            @endif
+                            </a>
                             @if($side_menu->anak->count() != 0)
                             <ul id="submenu-left">
                                 @foreach($side_menu->anak as $submenu)
@@ -69,9 +73,15 @@
                             @foreach(new_product() as $newproduk )
                             <li>
                                 <div class="product-new">
-                                    <a href="{{product_url($newproduk)}}">{{HTML::image(product_image_url($newproduk->gambar1))}}</a>
+                                    <a href="{{product_url($newproduk)}}">
+                                        {{HTML::image(product_image_url($newproduk->gambar1))}}
+                                    </a>
                                     <div class="tab-product-name">
-                                        <h3 class="product-name"><a href="{{product_url($newproduk)}}">{{short_description($newproduk->nama,12)}}</a></h3>
+                                        <h3 class="product-name">
+                                            <a href="{{product_url($newproduk)}}">
+                                                {{short_description($newproduk->nama,55)}}
+                                            </a>
+                                        </h3>
                                     </div>
                                     <div class="tab-price">
                                         <h3 class="price">{{price($newproduk->hargaJual)}}</h3>
@@ -117,7 +127,7 @@
                         <div class="tabs-description">
                             <div class="col-md-12 col-xs-12" style="margin-bottom:30px;">         
                                 <div class="maps" >
-                                    <h2 class="title">Google Maps</h2>
+                                    <h2 class="title">Peta Lokasi</h2>
                                     @if($kontak->lat!='0' || $kontak->lng!='0')
                                         <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
                                     @else
@@ -136,7 +146,7 @@
                                             <strong>Phone :</strong> {{$kontak->telepon}}<br>
                                         @endif
                                         @if(!empty($kontak->hp))
-                                            <strong>hp :</strong> {{$kontak->hp}}<br>
+                                            <strong>HP :</strong> {{$kontak->hp}}<br>
                                         @endif
                                         @if(!empty($kontak->bb))
                                             <strong>BBM :</strong> {{$kontak->bb}}<br>

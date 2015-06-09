@@ -1,7 +1,7 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Service</h1>
+            <h1>Layanan Pelanggan</h1>
         </div>
         <div class="register-page">
             <article class="col-lg-12 col-md-12 col-xs-12">

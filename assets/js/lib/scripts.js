@@ -1,23 +1,23 @@
-	// Document ready
-	$(document).ready(function(){
-		//top slide
-	  	$('.bxslider').bxSlider({
-	  		pager:false
-	  	});
+// Document ready
+$(document).ready(function(){
+	//top slide
+  	$('.bxslider').bxSlider({
+  		pager:false
+  	});
 
-	  	//partner slide
-	  	$('.partner').bxSlider({
-	  		pager:false,
-		    minSlides: 2,
-		    maxSlides: 7
-	  	});
+  	//partner slide
+  	$('.partner').bxSlider({
+  		pager:false,
+	    minSlides: 2,
+	    maxSlides: 7
+  	});
 
-	  	//caption product
-	  	$('.caption-thumbnail').bxSlider({
-	  		pager:false,
-		    minSlides: 3,
-		    maxSlides: 3
-	  	});
+  	//caption product
+  	$('.caption-thumbnail').bxSlider({
+  		pager:false,
+	    minSlides: 3,
+	    maxSlides: 3
+  	});
 	  	
 	$("#imgZoom").elevateZoom({
         gallery:'product_detail', 
@@ -75,7 +75,7 @@
       $(this).closest('li').find('#submenu-left').slideToggle(200);
       $('.clicker').toggleClass('active');
       e.stopPropagation();
-   });
+    });
 
     $("ul#category > li > a").click(function () {
         $(this).find("[class^='vnavright']").toggleClass('fa-caret-down fa-caret-right');
@@ -101,52 +101,52 @@
     });
 
     //grid to list homepage
-        function get_list(){
-            $(".tab-post").css("overflow-x", "hidden");
-            $(".tab-post").css("overflow-y", "scroll");
-            $(".tab-post").css("height", "500px");
-            $(".post").css("text-align", "left");
-            $(".post").css("display", "block");
-            $(".tab-title").css("float", "right");
-        }
+    function get_list(){
+        $(".tab-post").css("overflow-x", "hidden");
+        $(".tab-post").css("overflow-y", "scroll");
+        $(".tab-post").css("height", "500px");
+        $(".post").css("text-align", "left");
+        $(".post").css("display", "block");
+        $(".tab-title").css("float", "right");
+    }
 
-        function get_grid(){
-            location.reload();
-        }
+    function get_grid(){
+        location.reload();
+    }
 
-        $('.list').click(function() {
-            get_list();
-        });
+    $('.list').click(function() {
+        get_list();
+    });
 
-        $('.grid').click(function() {
-            get_grid();
-        });
+    $('.grid').click(function() {
+        get_grid();
+    });
 
     //grid to list product single
-        function get_list_product(){
-            $('.list').removeClass('col-md-3');
-            $('.list').removeClass('col-sm-6');
-            $('.list').removeClass('col-xs-12');
-            $('#single-categories').css("width", "95%");
-            $('#single-categories').css("overflow-y", "scroll");
-            $('#single-categories').css("height", "700px");
-            $('#single-categories').css("margin", "24px 17px");
-            $(".tab-title").css("float", "right");
-            $(".tab-title").css("margin-right", "16px");
-            $(".post-category").css("display", "block");
-            $(".post-category").css("text-align", "left");
-            $(".list-bottom-single").css("border-bottom", "none");
-        }
+    function get_list_product(){
+        $('.list').removeClass('col-md-3');
+        $('.list').removeClass('col-sm-6');
+        $('.list').removeClass('col-xs-12');
+        $('#single-categories').css("width", "95%");
+        $('#single-categories').css("overflow-y", "scroll");
+        $('#single-categories').css("height", "700px");
+        $('#single-categories').css("margin", "24px 17px");
+        $(".tab-title").css("float", "right");
+        $(".tab-title").css("margin-right", "16px");
+        $(".post-category").css("display", "block");
+        $(".post-category").css("text-align", "left");
+        $(".list-bottom-single").css("border-bottom", "none");
+    }
 
-        function get_grid_product(){
-            location.reload();
-        }
+    function get_grid_product(){
+        location.reload();
+    }
 
-        $('.list_product').click(function() {
-            get_list_product();
-        });
+    $('.list_product').click(function() {
+        get_list_product();
+    });
 
-        $('.grid_product').click(function() {
-            get_grid_product();
-        });
+    $('.grid_product').click(function() {
+        get_grid_product();
+    });
 });
