@@ -77,8 +77,7 @@
                             <h1>Detail Blog</h1>
                         </div>
                         <div class="tabs-description">
-                            <article class="col-lg-12" style="margin-bottom:10px">
-                                <hr>
+                            
                                 <h3>{{$detailblog->judul}}</h3>
                                 <p>
                                     <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
@@ -87,7 +86,7 @@
                                 {{sosialShare(blog_url($detailblog))}}
                                 <br>
                                 <p>{{$detailblog->isi}}</p>
-                            </article>
+                       
                             <hr>
                             <div class="navigate comments clearfix">
                                 @if(isset($prev))

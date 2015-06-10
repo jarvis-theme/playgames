@@ -108,6 +108,7 @@ $(document).ready(function(){
         $(".post").css("text-align", "left");
         $(".post").css("display", "block");
         $(".tab-title").css("float", "right");
+        
     }
 
     function get_grid(){
@@ -136,6 +137,8 @@ $(document).ready(function(){
         $(".post-category").css("display", "block");
         $(".post-category").css("text-align", "left");
         $(".list-bottom-single").css("border-bottom", "none");
+        // $("#desc-produk").attr("style","word-wrap: break-word; display: inline;")
+        // $("#gbr").attr("style","float: left;")
     }
 
     function get_grid_product(){

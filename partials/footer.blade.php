@@ -20,7 +20,7 @@
           </div>
           <ul>
             @foreach(main_menu()->link as $key=>$link)
-            <li><a href="{{menu_url($link)}}"># {{$link->nama}}</a></li>
+            <li><i class="fa fa-circle"></i><a href="{{menu_url($link)}}"> {{$link->nama}}</a></li>
             @endforeach
           </ul>
         </div>
@@ -80,6 +80,20 @@
       </div>
     </div>
     <div class="row">
+      <div class="bank">
+        @foreach(list_banks() as $value)
+        <img src="{{bank_logo($value)}}">
+        @endforeach
+        @foreach(list_payments() as $pay)
+            @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
+            <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" style="margin-bottom: 10px;" />
+            @endif
+        @endforeach
+        @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
+        <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" style="margin-bottom: 10px;" />
+        @endif
+      </div>
+       
       <div class="copyright">
         <p class="left-company">
           &copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a class="title-copyright" href="http://jarvis-store.com" target="_blank"> Jarvis Store</a>
@@ -130,6 +144,9 @@
           </a>
           @endif
       </div>
+     
+  
+
     </div>
   </div>
 

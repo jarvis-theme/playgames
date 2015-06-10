@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="tabs-caption">
-                                        <h2>Screenshoot</h2>
+                                        <h2>Screenshot</h2>
                                         <div id="product_detail">
                                             <ul class="caption-thumbnail">
                                                 @if($produk->gambar1 != '')
@@ -162,20 +162,22 @@
                                                 <span class="text-color">Out of stock</span>
                                             @endif
                                         </div>
-                                        <div class="sosmed">
+                                        <!-- <div class="sosmed">
                                             {{sosialShare(product_url($produk))}}
+                                        </div> -->
+                                        <div class="tab-btn"> 
+                                            <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}">ADD TO CHART</button>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="title-product">
-                                <h1>{{$produk->nama}}</h1>
-                                <div id="harga">
-                                    @if(!empty($produk->hargaCoret))
-                                    <h2><strike>{{price($produk->hargaCoret)}}</strike></h2>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    @endif
-                                    <h2>{{price($produk->hargaJual)}}</h2>
-                                </div>
+                            <h1>{{$produk->nama}}</h1>
+                                @if(!empty($produk->hargaCoret))
+                                <span><del>{{price($produk->hargaCoret)}}</del></span>
+                                @endif
+                                <h2>{{price($produk->hargaJual)}}</h2>
                             </div>
                             <div class="tabs-option-category">
                                 <ul class="tabs">
@@ -191,20 +193,9 @@
                             </div>
                             <div class="tabs-checkout">
                                 <div class="col-xs-12 col-sm-9">
-                                    @foreach(list_banks() as $value)
-                                    <img src="{{bank_logo($value)}}" style="margin-bottom: 10px;">
-                                    @endforeach
-                                    @foreach(list_payments() as $pay)
-                                        @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                                        <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" style="margin-bottom: 10px;" />
-                                        @endif
-                                    @endforeach
-                                    @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                                    <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" style="margin-bottom: 10px;" />
-                                    @endif
-                                </div>
-                                <div class="tab-btn"> 
-                                    <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}">ADD TO CHART</button>
+                                   <div class="sosmed">
+                                        {{sosialShare(product_url($produk))}}
+                                    </div>
                                 </div>
                             </div>
                         </form>

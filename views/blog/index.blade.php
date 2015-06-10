@@ -76,29 +76,27 @@
                 <div class="tabs-title-typical">
                     <h1>Blog</h1>
                 </div>
-                <div class="tabs-description">
+                    <div class="tabs-description">
                     @if(count(list_blog(null,@$blog_category)) > 0)
                         @foreach(list_blog(null,@$blog_category) as $blogs)
-                            <article class="col-lg-12" style="margin-bottom:10px">
-                                <hr>
-                                <h3>{{$blogs->judul}}</h3>
-                                <p>
-                                    <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
-                                    <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
-                                </p>
-                                <p>
-                                    {{shortDescription($blogs->isi,300)}}<br>
-                                    <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>
-                                </p>
-                            </article>
+                            <h1>{{$blogs->judul}}</h1>
+                            <p>
+                                <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->updated_at)}}</small>&nbsp;&nbsp;
+                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></span>
+                            </p>
+                            <p>
+                                {{shortDescription($blogs->isi,300)}}<br>
+                                <a href="{{blog_url($blogs)}}" class="theme">Baca Selengkapnya →</a>
+                            </p>
                         @endforeach
                         {{list_blog(null,@$blog_category)->links()}}
-                    @else
-                        <article style="font-style:italic; text-align:center;">
-                            Blog tidak ditemukan.
-                        </article>
-                    @endif
+                     @else
+                    <article style="font-style:italic; text-align:center;">
+                        Blog tidak ditemukan.
+                    </article>
+                @endif
                 </div>
+               
             </div>
         </div>
     </div>

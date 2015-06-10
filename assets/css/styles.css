@@ -988,22 +988,28 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
   margin-left: 40px;}
 
 #single-typical {
-  width: 100%;
+  width: 93%;
   overflow: hidden;
-  margin: 0 25px; }
+  /*margin: 0 25px;*/
+  margin-left: 25px;
+   }
   #single-typical .tabs-title-typical {
     overflow: hidden;
-    width: 100%;
+    width: 96%;
     border-bottom: 1px solid #dbdbdb; }
     #single-typical .tabs-title-typical h1 {
       color: #2876ce;
       font-size: 1.8em;
       font-family: "Open Sans", sans-serif;
-      font-weight: 600; }
+      font-weight: 600;
+      margin-left: 9px; 
+    }
   #single-typical .tabs-description {
     overflow: hidden;
     width: 100%;
-    padding-right: 100px; }
+    padding: 0 10px;
+    background-color: #d3d3d3;
+     }
     #single-typical .tabs-description h1 {
       color: #000000;
       font-size: 1.4em;
@@ -1240,7 +1246,7 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
   #detail-product .title-product {
     width: 100%;
     overflow: hidden;
-    margin-top: 10px; }
+    /*margin-top: 10px;*/ }
     #detail-product .title-product h1 {
       font-family: "Open Sans", sans-serif;
       color: #000;
@@ -1332,10 +1338,24 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
     border-radius: 5px;
     display: inline-block;
     border: 0px; }
+    .btn-checkout {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    padding-left: 0;
+    width: 160px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 0px; }
   .tabs-checkout .chart {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #79c300), color-stop(50%, #5fb400), color-stop(100%, #79c300));
     /* Chrome,Safari4+ */
                     background: -moz-linear-gradient(top, #79c300 0%, #5fb400 50%, #79c300 100%); /* FF3.6+ */
+     }
+  .chart {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #79c300), color-stop(50%, #5fb400), color-stop(100%, #79c300));
+    /* Chrome,Safari4+ */
+    background: -moz-linear-gradient(top, #79c300 0%, #5fb400 50%, #79c300 100%); /* FF3.6+ */
      }
   .tabs-checkout .checkout {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00bcf7), color-stop(50%, #0097f1), color-stop(100%, #00bcf7));
@@ -1611,7 +1631,9 @@ font-size: 1em;
 color: #fff;
 font-family: "Open Sans", sans-serif;
 font-weight: 300;
-text-transform: uppercase; }
+text-transform: uppercase;
+margin-top: 20px;
+ }
 
 #menus .bgmenu{
   list-style: none;
@@ -1686,7 +1708,7 @@ img#imgZoom{
 
 .fb_reset {display: inline-block;}
 .fb-share-button {margin: 0px 15px;}
-.sosmed {margin-top: 25px;}
+/*.sosmed {margin-top: 25px;}*/
 .side-collection {
   border-bottom: 1px solid #d6d6d6;
   margin-bottom: 10px;
@@ -1698,6 +1720,10 @@ img#imgZoom{
 #harga {display: inline-flex;}
 .item-icon{
    position:absolute;
-   top:5px;
-   left: 5px;
+   top:30px;
+   left: 30px;
+}
+.bank{
+  margin-top: 20px;
+  padding-left: 10px;
 }

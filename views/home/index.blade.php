@@ -4,11 +4,6 @@
   <div id="content">
     <div class="tab-title-top">
       <h1>All Produk
-        <div class="sortby">
-          <span>Sort by :</span>
-          <button class="btn grid"><i class="fa fa-th"></i></button>
-          <button class="btn list"><i class="fa fa-bars"></i></button>
-        </div>
       </h1>
     </div>
     @if(count(new_product()) > 0)
