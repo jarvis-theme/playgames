@@ -7,11 +7,13 @@
             <div class="col-sm-3">
                  <div class="left-sidebar">
                     <ul id="category"> 
-                        @foreach(list_blog_category() as $kat)
+                    @foreach(list_blog_category() as $kat)
+                        @if(!empty($kat->nama))        
                         <li>
                             <a href="{{blog_category_url($kat)}}">{{$kat->nama}} </a>
                         </li>
-                        @endforeach
+                        @endif
+                    @endforeach
                     </ul>
                 </div>
                 @if(count(new_product()) > 0)
@@ -80,7 +82,9 @@
                                 <h3>{{$detailblog->judul}}</h3>
                                 <p>
                                     <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;
+                                    @if(!empty($detailblog->kategori->nama))
                                     <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
+                                    @endif
                                 </p>
                                 {{sosialShare(blog_url($detailblog))}}
                                 <br>
