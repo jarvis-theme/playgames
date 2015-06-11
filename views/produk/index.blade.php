@@ -138,13 +138,12 @@
                                         @endif
                                     @endif
                                     <a href="{{product_url($listproduk)}}">
-                                        {{HTML::image(product_image_url($listproduk->gambar1),'',array("id"=>"gbr"))}}
+                                        {{HTML::image(product_image_url($listproduk->gambar1), short_description($listproduk->nama,15), array("id"=>"gbr"))}}
                                     </a>
                                     
-                                    
-                                    <!-- <div class="col-xs-6" id="desc-produk" style="display:none;">
-                                        {{$listproduk->deskripsi}}
-                                    </div> -->
+                                    <div class="col-xs-6 col-sm-6" id="desc-produk" style="display:none;">
+                                        {{short_description($listproduk->deskripsi, 230)}}
+                                    </div>
                                     
                                     <div class="tab-title">
                                         <h2>{{short_description($listproduk->nama,20)}}</h2>

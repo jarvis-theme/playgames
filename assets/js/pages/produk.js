@@ -6,9 +6,12 @@ define(['jquery','jq_ui','bxSlider','elevateZoom'], function($)
 		var URL = window.location.protocol + "//" + window.location.host;
 		self.run = function()
 		{
+			// close cart
 			$(document).on('click', '.left .button-dialog', function(){
 				$('#cart_dialog').dialog('close');
+				$('html,body').removeAttr('style');
 			});
+			// delete cart
 			$(document).on('click','.remove',function(){
 				var delete_id = $(".remove a[href*=deletecartdialog]").attr("href");
 				id = delete_id.match(/'([^']+)'/)[1];
@@ -20,10 +23,13 @@ define(['jquery','jq_ui','bxSlider','elevateZoom'], function($)
 					}).done(function(data){
 						$('#shoppingcartplace').html(data['cart']);
 						$( "#cart_dialog" ).dialog('close');	
+						$('html,body').removeAttr('style');
 					}).done(function(){
 						noty({"text":'Produk dalam keranjang berhasil di hapus.',"layout":"center","type":'success','speed': 100});	
+						$('html,body').removeAttr('style');
 					}).error(function(){
 						noty({"text":'Opps, terjadi kesalahan.',"layout":"center","type":'error','speed': 100});		
+						$('html,body').removeAttr('style');
 					});	
 				}
 			});
@@ -82,7 +88,7 @@ define(['jquery','jq_ui','bxSlider','elevateZoom'], function($)
                 imageCrossfade: true, 
                 loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'
             });
-             $("#imgZoom").bind("click", function(e) { 
+            $("#imgZoom").bind("click", function(e) { 
                 var ez =  $('#imgZoom').data('elevateZoom'); 
                           $.fancybox(ez.getGalleryList()); 
                           return false; 
@@ -160,8 +166,6 @@ define(['jquery','jq_ui','bxSlider','elevateZoom'], function($)
 								}
 								else if(data['url']) 
 								{
-									//alert('hahahaa');
-									//console.log('hihii');
 									$( "#cart_dialog" ).dialog('close');  
 									window.location = data.url + "/checkout";
 								}
@@ -178,6 +182,7 @@ define(['jquery','jq_ui','bxSlider','elevateZoom'], function($)
 							}).error(function(){
 								noty({"text":'Opps, something error. please try again.',"layout":"center","type":'error','speed': 100});		
 								$( "#cart_dialog" ).dialog('close');
+								$('html,body').removeAttr('style');
 							});
 						},
 						beforeClose: function( event, ui ) {
@@ -225,6 +230,7 @@ define(['jquery','jq_ui','bxSlider','elevateZoom'], function($)
 					$("#cart_dialog").dialog('option','position',$( "#cart_dialog" ).dialog( "option", "position" ));
 				});
 			}
+			$('html,body').removeAttr('style');
 		};
 
 		var plugin_trustklik = function(){

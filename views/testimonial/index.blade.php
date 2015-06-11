@@ -113,10 +113,12 @@
                             <h1>Testimonial</h1>
                         </div>
                         @foreach (list_testimonial() as $items)  
-                        <blockquote>
-                            <h4>{{$items->nama}}</h4>
-                            <p class="quote">{{$items->isi}}</p>
-                        </blockquote>
+                        <div class="quote-testimo">
+                            <blockquote>
+                                {{$items->isi}}
+                            </blockquote>
+                            <p class="quote"><i class="fa fa-user"></i>&nbsp;&nbsp;{{$items->nama}}</p>
+                        </div>
                         @endforeach
                         <br>
                         <div class="row">

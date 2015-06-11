@@ -86,11 +86,11 @@
         @endforeach
         @foreach(list_payments() as $pay)
             @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-            <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" style="margin-bottom: 10px;" />
+            <img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
             @endif
         @endforeach
         @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-        <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" style="margin-bottom: 10px;" />
+        <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
         @endif
       </div>
        
@@ -100,7 +100,7 @@
         </p>
       </div>
       <div class="social-media">
-        <span>Social Media</span>
+        <span id="footer-sosmed">Social Media</span>
           @if(!empty($kontak->fb))
           <a href="{{url($kontak->fb)}}">
             <div class="icon">
@@ -144,11 +144,7 @@
           </a>
           @endif
       </div>
-     
-  
-
     </div>
   </div>
-
 </div>
 <!-- end row content post -->

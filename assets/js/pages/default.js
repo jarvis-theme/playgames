@@ -32,6 +32,10 @@ define(['jquery','bxSlider','noty'], function($)
                $(".form-search").slideToggle(300);
             });
 
+            $('#btn-slide').click(function(){
+              $("ul#menus-top-section").slideToggle(300);
+            });
+            
             //grid to list product single
             function get_list_product(){
                 $('.list').removeClass('col-md-3');
@@ -46,6 +50,12 @@ define(['jquery','bxSlider','noty'], function($)
                 $(".post-category").css("display", "block");
                 $(".post-category").css("text-align", "left");
                 $(".list-bottom-single").css("border-bottom", "none");
+                $("img#gbr").each(function(){
+                    $(this).attr("style","float: left;");
+                });
+                $("div#desc-produk").each(function(){
+                    $(this).attr("style","display: inline;");
+                });
             }
 
             function get_grid_product(){

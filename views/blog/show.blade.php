@@ -72,12 +72,11 @@
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                    <div id="single-typical">
+                    <div id="single-typical" class="detail-blog">
                         <div class="tabs-title-typical">
                             <h1>Detail Blog</h1>
                         </div>
                         <div class="tabs-description">
-                            
                                 <h3>{{$detailblog->judul}}</h3>
                                 <p>
                                     <small><i class="fa fa-calendar"></i> {{waktuTgl($detailblog->created_at)}}</small>&nbsp;&nbsp;

@@ -120,7 +120,7 @@
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                    <div id="single-typical">
+                    <div id="single-typical" class="kontak">
                         <div class="tabs-title-typical">
                             <h1>Kontak</h1>
                         </div>

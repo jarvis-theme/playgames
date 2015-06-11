@@ -138,12 +138,12 @@
 				<div class="form-group">
 				  <label  class="control-label"> Jumlah:</label>
 				  @if($checkouttype==1)        
-					<input type="text" class="form-control" placeholder="jumlah yg terbayar" name='jumlah' value='{{$order->total}}' required>
+					<input type="text" class="form-control" placeholder="jumlah yg terbayar" name='jumlah' value='{{$order->status==0 ? $order->total : ""}}' required>
 				  @else
 					@if($order->status < 2)
-					  <input class="form-control" placeholder="jumlah yg terbayar" type="text" name='jumlah' value='{{$order->dp}}' required>
+					  <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->dp}}' required>
 					@elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-					  <input class="form-control" placeholder="jumlah yg terbayar" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required>
+					  <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required>
 					@endif
 				  @endif
 				</div>

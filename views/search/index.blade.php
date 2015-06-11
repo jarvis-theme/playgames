@@ -1,13 +1,7 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Categories
-                <div class="sortby">
-                    <span>Sort by :</span>
-                    <button class="btn grid_product"><i class="fa fa-th"></i></button>
-                    <button class="btn list_product"><i class="fa fa-bars"></i></button>
-                </div>
-            </h1>
+            <h1>Categories</h1>
         </div>
         <div class="row">
             <div class="col-sm-3">

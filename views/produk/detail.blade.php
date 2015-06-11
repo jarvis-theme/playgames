@@ -162,13 +162,10 @@
                                                 <span class="text-color">Out of stock</span>
                                             @endif
                                         </div>
-                                        <!-- <div class="sosmed">
-                                            {{sosialShare(product_url($produk))}}
-                                        </div> -->
                                         <div class="tab-btn"> 
-                                            <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}">ADD TO CHART</button>
+                                            <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}">&nbsp;&nbsp;ADD TO CHART</button>
                                         </div>
-
+                                        <br>
                                     </div>
                                 </div>
                             </div>
