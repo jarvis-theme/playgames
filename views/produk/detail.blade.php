@@ -5,6 +5,7 @@
         </div>
         <div class="row">
             <div class="col-sm-3">
+                @if(count(list_category()) > 0)
                 <div class="left-sidebar">
                     <ul id="category">
                     @foreach(list_category() as $side_menu)
@@ -42,6 +43,7 @@
                     @endforeach
                     </ul>
                 </div>
+                @endif
                 @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
@@ -73,7 +75,7 @@
                     </div>
                 </div>
                 @endif
-
+                @if(count(list_koleksi()) > 0)
                 <div class="left-section list-collection">
                     <h5 class="col-xs-12 col-sm-12">Koleksi</h5>
                     @foreach (list_koleksi() as $kol)
@@ -90,6 +92,7 @@
                     </div>
                     @endforeach
                 </div>
+                @endif
             </div>
             <div class="col-sm-9">
                 <div class="row">

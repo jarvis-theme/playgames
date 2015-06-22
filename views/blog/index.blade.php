@@ -5,6 +5,7 @@
 </div>
 <div class="row">
     <div class="col-sm-3">
+        @if(count(list_blog_category()) > 0)
         <div class="left-sidebar">
             <ul id="category"> 
             @foreach(list_blog_category() as $kat)
@@ -16,6 +17,7 @@
             @endforeach
             </ul>
         </div>
+        @endif
         @if(count(new_product()) > 0)
         <div class="left-section">
             <div class="header-left-section">
@@ -47,6 +49,7 @@
             </div>
         </div>
         @endif
+        @if(count(recentBlog()) > 0)
         <div class="left-section">
             <div class="header-left-section">
                 <h1>Artikel</h1>
@@ -61,6 +64,7 @@
             </div>
             @endforeach
         </div>
+        @endif
         @if(count(vertical_banner()) > 0)
         <div class="banner-left">
             @foreach(vertical_banner() as $banners)

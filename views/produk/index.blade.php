@@ -11,6 +11,7 @@
         </div>
             <div class="row">
                 <div class="col-sm-3">
+                    @if(count(list_category()) > 0)
                     <div class="left-sidebar">
                         <ul id="category">
                         @foreach(list_category() as $side_menu)
@@ -49,6 +50,7 @@
                         @endforeach
                         </ul>
                     </div>
+                    @endif
                     @if(count(new_product()) > 0)
                     <div class="left-section">
                         <div class="header-left-section">
@@ -80,6 +82,7 @@
                         </div>
                     </div>
                     @endif
+                    @if(count(list_blog()) > 0)
                     <div class="left-section">
                         <div class="header-left-section">
                             <h1>Artikel</h1>
@@ -94,6 +97,8 @@
                             </div>
                         @endforeach
                     </div>
+                    @endif
+                    @if(count(list_koleksi()) > 0)
                     <div class="left-section list-collection">
                         <h5 class="col-xs-12 col-sm-12">Koleksi</h5>
                         @foreach (list_koleksi() as $kol)
@@ -110,6 +115,7 @@
                         </div>
                         @endforeach
                     </div>
+                    @endif
                     @if(count(vertical_banner()) > 0)
                     <div class="banner-left">
                         @foreach(vertical_banner() as $banners)
@@ -137,10 +143,11 @@
                                         <div class="item-icon"><span class="label label-info">BARU</span></div>
                                         @endif
                                     @endif
+                                    <div class="image-container">
                                     <a href="{{product_url($listproduk)}}">
                                         {{HTML::image(product_image_url($listproduk->gambar1), short_description($listproduk->nama,15), array("id"=>"gbr"))}}
                                     </a>
-                                    
+                                    </div>
                                     <div class="col-xs-6 col-sm-6" id="desc-produk" style="display:none;">
                                         {{short_description($listproduk->deskripsi, 230)}}
                                     </div>

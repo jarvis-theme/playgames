@@ -25,7 +25,7 @@
       @endforeach
     </div>
     @endif
-    
+    @if(count(home_product()) > 0)
     <div class="tab-title-category second-category">
       <h3>Home Produk</h3>
     </div>
@@ -43,7 +43,8 @@
       </div>
       @endforeach
     </div>
-
+    @endif
+    @if(count(list_product()) > 0)
     <div class="tab-title-category third-category">
       <h3>List Produk</h3>
     </div>
@@ -61,3 +62,4 @@
       </div>
       @endforeach
     </div>
+    @endif

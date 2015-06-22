@@ -5,6 +5,7 @@
         </div>
         <div class="row">
             <div class="col-sm-3">
+                @if(count(list_category()) > 0)
                 <div class="left-sidebar">
                     <ul id="category">
                     @foreach(list_category() as $side_menu)
@@ -42,6 +43,8 @@
                     @endforeach
                     </ul>
                 </div>
+                @endif
+                @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
                         <h1>New Produk</h1>
@@ -71,6 +74,8 @@
                         <a href="{{url('produk')}}" class="link-more-product">View More</a>
                     </div>
                 </div><!-- end left section -->
+                @endif
+                @if(count(list_blog()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
                         <h1>Artikel</h1>
@@ -85,6 +90,7 @@
                         </div>
                     @endforeach
                 </div><!-- end left section -->
+                @endif
                  {{ Theme::partial('subscribe') }}
                 <!-- end banner -->
                
