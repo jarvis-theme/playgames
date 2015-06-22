@@ -100,6 +100,7 @@
                         <form action="#" id="addorder">
                             <div class="row">
                                 <div class="col-sm-5">
+                                    
                                     <div class="zoom-caption">
                                         <img id="imgZoom" src="{{product_image_url($produk->gambar1)}}" data-zoom-image="{{product_image_url($produk->gambar1)}}">
                                     </div>

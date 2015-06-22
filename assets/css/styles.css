@@ -1172,9 +1172,10 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
     font-size: 1em;
     font-weight: 500; }
   #detail-product .zoom-caption {
-    width: 100%; }
+    max-width: 100%; }
     #detail-product .zoom-caption img {
-      max-width: 100%; }
+      width: 358px !important;
+      max-height: 100% }
   #detail-product #product_detail {
     margin-top: 20px; }
   #detail-product .caption-thumbnail {
@@ -1651,10 +1652,7 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
   width: 176px;
 }
 
-.row .col-sm-5{
-  width: 328px;
-  margin-right: 58px;
-}
+
 .row article.text-center{
   text-align: center;
 }
@@ -1781,6 +1779,7 @@ img#imgZoom{
   width: 168px;
   height: 168px;
   margin-left: 4px;
+  float: left;
 }
 .mg{
   margin-left: 18px;
