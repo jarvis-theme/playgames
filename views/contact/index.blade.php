@@ -22,7 +22,7 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Categories</h1>
+            <h1>Kategori</h1>
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -68,7 +68,7 @@
                 @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
-                        <h1>New Produk</h1>
+                        <h1>Produk Baru</h1>
                     </div>
                     <div class="product">
                         <ul id="tab-product-new">
@@ -92,7 +92,7 @@
                             </li>
                             @endforeach
                         </ul>
-                        <a href="{{url('produk')}}" class="link-more-product">View More</a>
+                        <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
                     </div>
                 </div>
                 @endif
@@ -116,7 +116,7 @@
                 <div class="banner-left">
                     @foreach(vertical_banner() as $banners)
                     <a href="{{url($banners->url)}}">
-                        {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'386'))}}
+                        {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270'))}}
                     </a>
                     @endforeach
                 </div>
@@ -133,7 +133,7 @@
                         <div class="tabs-description">
                             <div class="col-md-12 col-xs-12" style="margin-bottom:30px;">         
                                 <div class="maps" >
-                                    <h2 class="title">Peta Lokasi</h2>
+                                    <h2 class="title"></h2>
                                     @if($kontak->lat!='0' || $kontak->lng!='0')
                                         <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
                                     @else
@@ -143,8 +143,8 @@
                             </div>
                             <br><br>
                             <div class="col-md-12">
-                                <div class="contact-us" >
-                                    <div class="contact-desc">
+                                <!-- <div class="contact-us" > -->
+                                    <div class="col-md-12 contact-desc">
                                         @if(!empty($kontak->alamat))
                                             <strong>Shop Address :</strong> {{$kontak->alamat}}<br>
                                         @endif
@@ -162,8 +162,6 @@
                                         @endif
                                         <div class="clr"></div>
                                     </div>
-                                    <br>
-                                    <br>
                                     <div class="col-md-6">
                                         <form class="contact-form" action="{{url('kontak')}}" method="post">
                                             <p class="form-group">
@@ -178,7 +176,7 @@
                                             <button class="btn btn-success submitnewletter">Send</button>
                                         </form>
                                     </div>
-                                </div>
+                                <!-- </div> -->
                             </div>
                         </div>
                     </div>

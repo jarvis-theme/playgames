@@ -75,7 +75,9 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
   overflow: hidden;
   z-index: 1000; }
   #header .logo {
-    float: left; }
+    float: left;
+    height: 129px;
+     }
     #header .logo img {
       max-width: 100%;
       margin: 7px 7px; }
@@ -383,6 +385,7 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
   -moz-box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 6px 5px -2px rgba(0, 0, 0, 0.75); }
   #content .tab-title-top {
+    height: 48px;
     width: 100%;
     overflow: hidden;
       font-size: 1.2em;
@@ -398,7 +401,8 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
       font-size: 1.2em;
       text-transform: uppercase;
       padding-left: 16px; 
-      margin-top: 15px;
+      margin-top: 12px;
+      font-weight: bold;
     }
     #content .tab-title-top span {
       font-family: "Open Sans", sans-serif;
@@ -528,7 +532,7 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
   overflow: hidden;
   width: 100%;
   margin-top: 40px;
-  padding: 54px 54px 10px; }
+  padding: 26px 54px 10px; }
   #footer .tab-links {
     margin: 0 10px;
     border-bottom: 1px solid #b0b0b0;
@@ -581,7 +585,7 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
       text-transform: uppercase; }
   #footer .copyright {
     float: left;
-    margin-top: 20px; }
+    margin-top: 38px; }
   #footer .left-company {
     font-family: "Open Sans", sans-serif;
     color: #000000;
@@ -782,7 +786,9 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
         color: #00a2ff;
         font-style: italic;
         font-size: 1em;
-        font-weight: 300; }
+        font-weight: 300;
+        margin-left: 3px;
+         }
         .left-section .product .tips-post .read-more:hover {
           text-decoration: underline;
           color: #00a2ff; }
@@ -1787,4 +1793,23 @@ img#imgZoom{
 .bn{
   float: right;
   margin-top: 24px;
+}
+.htgcoret{
+  margin-top: 23px !important;
+}
+
+.bx-wrapper .bx-controls-direction a
+{
+  margin-top: -50px !important;
+}
+.contact-desc
+{
+  margin-bottom: 13px;
+  margin-top: -11px;
+}
+h1.col-xs-12.col-sm-12{
+  font-size: 1.2em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  margin-bottom: 22px;
 }

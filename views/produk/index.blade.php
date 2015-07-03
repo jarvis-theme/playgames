@@ -1,9 +1,9 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Categories
+            <h1>Kategori
                 <div class="sortby">
-                    <span>Sort by :</span>
+                    <span>Mode Tampilan :</span>
                     <button class="btn grid_product"><i class="fa fa-th"></i></button>
                     <button class="btn list_product"><i class="fa fa-bars"></i></button>
                 </div>
@@ -54,7 +54,7 @@
                     @if(count(new_product()) > 0)
                     <div class="left-section">
                         <div class="header-left-section">
-                            <h1>New Produk</h1>
+                            <h1>Produk Baru</h1>
                         </div>
                         <div class="product">
                             <ul id="tab-product-new">
@@ -78,7 +78,7 @@
                                 </li>
                                 @endforeach
                             </ul>
-                            <a href="{{url('produk')}}" class="link-more-product">View More</a>
+                            <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
                         </div>
                     </div>
                     @endif
@@ -100,14 +100,9 @@
                     @endif
                     @if(count(list_koleksi()) > 0)
                     <div class="left-section list-collection">
-                        <h5 class="col-xs-12 col-sm-12">Koleksi</h5>
+                        <h1 class="col-xs-12 col-sm-12">Koleksi</h1>
                         @foreach (list_koleksi() as $kol)
                         <div class="side-collection">
-                            <div class="col-xs-4 col-sm-4">
-                                <a href="{{koleksi_url($kol)}}">
-                                    {{ HTML::image(koleksi_image_url($kol->gambar,'thumb'),$kol->nama, array('class' => 'img-responsive','width'=>'80','height'=>'80' ))}}
-                                </a>
-                            </div>
                             <div class="col-xs-8 col-sm-8">
                                 <a href="{{koleksi_url($kol)}}">{{$kol->nama}}</a>
                             </div>
@@ -120,7 +115,7 @@
                     <div class="banner-left">
                         @foreach(vertical_banner() as $banners)
                             <a href="{{url($banners->url)}}">
-                                {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'386'))}}
+                                {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270'))}}
                             </a>
                         @endforeach
                     </div>
@@ -157,7 +152,7 @@
                                         @if(!empty($listproduk->hargaCoret))
                                         <h2><strike>{{price($listproduk->hargaCoret)}}</strike></h2>
                                         @endif
-                                        <h2 class="price"><strong>{{price($listproduk->hargaJual)}}</strong></h2>
+                                        <h2 class="{{empty($listproduk->hargaCoret) ? 'price htgcoret' : 'price'}}"><strong>{{price($listproduk->hargaJual)}}</strong></h2>
                                         <a href="{{product_url($listproduk)}}" class="add-chart">Lihat</a>
                                     </div>
                                 </div>

@@ -42,13 +42,14 @@ define(['jquery','bxSlider','noty'], function($)
                 $('.list').removeClass('col-sm-6');
                 $('.list').removeClass('col-xs-12');
                 $('#single-categories').css("width", "95%");
-                $('#single-categories').css("overflow-y", "scroll");
-                $('#single-categories').css("height", "700px");
+                // $('#single-categories').css("overflow-y", "scroll");
+                // $('#single-categories').css("height", "700px");
                 $('#single-categories').css("margin", "24px 17px");
                 $(".tab-title").css("float", "right");
                 $(".tab-title").css("margin-right", "16px");
                 $(".post-category").css("display", "block");
                 $(".post-category").css("text-align", "left");
+                $(".post-category").css("height", "196px");
                 $(".list-bottom-single").css("border-bottom", "none");
                 $("img#gbr").each(function(){
                     $(this).attr("style","float: left;");

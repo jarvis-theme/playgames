@@ -1,7 +1,7 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Categories</h1>
+            <h1>Detail Blog</h1>
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -21,7 +21,7 @@
                 @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
-                        <h1>New Produk</h1>
+                        <h1>Produk Baru</h1>
                     </div>
                     <div class="product">
                         <ul id="tab-product-new">
@@ -45,7 +45,7 @@
                             </li>
                             @endforeach
                         </ul>
-                        <a href="{{url('produk')}}" class="link-more-product">View More</a>
+                        <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
                     </div>
                 </div>
                 @endif
@@ -69,7 +69,7 @@
                 <div class="banner-left">
                     @foreach(vertical_banner() as $banners)
                         <a href="{{URL::to($banners->url)}}">
-                            {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'386'))}}
+                            {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270'))}}
                         </a>
                     @endforeach
                 </div>

@@ -3,12 +3,12 @@
 <div class="row">
   <div id="content">
     <div class="tab-title-top">
-      <h1>All Produk
+      <h1><!-- All Produk -->
       </h1>
     </div>
     @if(count(new_product()) > 0)
     <div class="tab-title-category first-category">
-      <h3>New Produk</h3>
+      <h3>Produk Baru</h3>
     </div>
     <div class="tab-post">
       @foreach(new_product() as $newproduk )
@@ -27,7 +27,7 @@
     @endif
     @if(count(home_product()) > 0)
     <div class="tab-title-category second-category">
-      <h3>Home Produk</h3>
+      <h3>Produk Pilihan</h3>
     </div>
     <div class="tab-post">
       @foreach(home_product() as $homeproduk)
@@ -46,7 +46,7 @@
     @endif
     @if(count(list_product()) > 0)
     <div class="tab-title-category third-category">
-      <h3>List Produk</h3>
+      <h3>Produk Populer</h3>
     </div>
     <div class="tab-post">
       @foreach(list_product() as $listproduk)

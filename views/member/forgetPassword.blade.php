@@ -26,10 +26,10 @@
 
 <div class="row">
 <div id="content">
-        <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4 pull-right">
+       <!--  <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4 pull-right">
             {{ Theme::partial('subscribe') }}
             <br>
-        </div>
+        </div> -->
         <div id="center_column" class="col-lg-4 col-xs-12 col-sm-4">
             <h2>Lupa Password</h2><hr><br>
             <form class="form-horizontal" action="{{url('member/forgetpassword')}}" method="post">
@@ -49,4 +49,6 @@
                     <a href="{{url('member/create')}}" class="btn btn-success">Daftar</a>
                 </span>
             </div>
+            <br><br>
         </div>
+        

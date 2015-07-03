@@ -1,7 +1,7 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Detail Product</h1>
+            <h1>Detail Produk</h1>
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -47,7 +47,7 @@
                 @if(count(new_product()) > 0)
                 <div class="left-section">
                     <div class="header-left-section">
-                        <h1>New Produk</h1>
+                        <h1>Produk Baru</h1>
                     </div>
                     <div class="product">
                         <ul id="tab-product-new">
@@ -71,7 +71,7 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <a href="{{url('produk')}}" class="link-more-product">View More</a>
+                        <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
                     </div>
                 </div>
                 @endif
@@ -80,11 +80,7 @@
                     <h5 class="col-xs-12 col-sm-12">Koleksi</h5>
                     @foreach (list_koleksi() as $kol)
                     <div class="side-collection">
-                        <div class="col-xs-4 col-sm-4">
-                            <a href="{{koleksi_url($kol)}}">
-                                {{ HTML::image(koleksi_image_url($kol->gambar,'thumb'),$kol->nama, array('class' => 'img-responsive','width'=>'80','height'=>'80' ))}}
-                            </a>
-                        </div>
+                        
                         <div class="col-xs-8 col-sm-8">
                             <a href="{{koleksi_url($kol)}}">{{$kol->nama}}</a>
                         </div>
