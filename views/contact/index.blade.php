@@ -1,24 +1,3 @@
-@if(Session::has('msg2'))
-<div class="success" id='message' style='display:none'>
-    Terima kasih, pesan anda sudah terkirim.
-</div>
-@endif
-@if(Session::has('msg3'))
-<div class="success" id='message' style='display:none'>
-    Maaf, pesan anda belum terkirim.
-</div>
-@endif
-@if($errors->all())
-<div class="error" id='message' style='display:none'>
-    Terjadi kesalahan dalam menyimpan data.<br><br>
-    <ul>
-        @foreach($errors->all() as $message)
-        <li>{{ $message }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
@@ -72,11 +51,11 @@
                     </div>
                     <div class="product">
                         <ul id="tab-product-new">
-                            @foreach(new_product() as $newproduk )
+                            @foreach(new_product() as $newproduk)
                             <li>
                                 <div class="product-new">
                                     <a href="{{product_url($newproduk)}}">
-                                        {{HTML::image(product_image_url($newproduk->gambar1))}}
+                                        {{HTML::image(product_image_url($newproduk->gambar1,'medium'))}}
                                     </a>
                                     <div class="tab-product-name">
                                         <h3 class="product-name">
@@ -92,7 +71,7 @@
                             </li>
                             @endforeach
                         </ul>
-                        <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
+                        <a href="{{url('produk')}}" class="link-more-product">Lihat Semua</a>
                     </div>
                 </div>
                 @endif
@@ -105,12 +84,12 @@
                     <div class="product">
                         <div class="tips-post">
                             <h3><a href="{{blog_url($artikel)}}">{{short_description($artikel->judul, 20)}}</a></h3>
-                            <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Read More</a></p>
+                            <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Selengkapnya</a></p>
                             <span class="date">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
                         </div>
                     </div>
                     @endforeach
-                </div><!-- end left section -->
+                </div>
                 @endif
                 @if(count(vertical_banner()) > 0)
                 <div class="banner-left">
@@ -120,7 +99,6 @@
                     </a>
                     @endforeach
                 </div>
-                <!-- end banner -->
                 @endif
                 {{ Theme::partial('subscribe') }}
             </div>
@@ -146,13 +124,13 @@
                                 <!-- <div class="contact-us" > -->
                                     <div class="col-md-12 contact-desc">
                                         @if(!empty($kontak->alamat))
-                                            <strong>Shop Address :</strong> {{$kontak->alamat}}<br>
+                                            <strong>Alamat :</strong> {{$kontak->alamat}}<br>
                                         @endif
                                         @if(!empty($kontak->telepon))
-                                            <strong>Phone :</strong> {{$kontak->telepon}}<br>
+                                            <strong>Telepon :</strong> {{$kontak->telepon}}<br>
                                         @endif
                                         @if(!empty($kontak->hp))
-                                            <strong>HP :</strong> {{$kontak->hp}}<br>
+                                            <strong>SMS :</strong> {{$kontak->hp}}<br>
                                         @endif
                                         @if(!empty($kontak->bb))
                                             <strong>BBM :</strong> {{$kontak->bb}}<br>
@@ -165,15 +143,15 @@
                                     <div class="col-md-6">
                                         <form class="contact-form" action="{{url('kontak')}}" method="post">
                                             <p class="form-group">
-                                            <input class="form-control" placeholder="Name" name="namaKontak" type="text" required>
+                                            <input class="form-control" placeholder="Nama" name="namaKontak" type="text" required>
                                             </p>
                                             <p class="form-group">
-                                            <input class="form-control" placeholder="Email Address" name="emailKontak" type="email" required>
+                                            <input class="form-control" placeholder="Email" name="emailKontak" type="email" required>
                                             </p>
                                             <p class="form-group">
-                                            <textarea class="form-control" placeholder="Message" name="messageKontak" required></textarea>
+                                            <textarea class="form-control" placeholder="Pesan" name="messageKontak" required></textarea>
                                             </p>
-                                            <button class="btn btn-success submitnewletter">Send</button>
+                                            <button class="btn btn-success submitnewletter">Kirim</button>
                                         </form>
                                     </div>
                                 <!-- </div> -->

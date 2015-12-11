@@ -684,7 +684,7 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
       color: #000000;
       font-size: 1em;
       margin: 0;
-      padding-top: 10px;
+      padding-top: 5px;
       font-weight: 500; }
     #single-categories .post-category h3 {
       font-family: "Open Sans", sans-serif;
@@ -954,7 +954,7 @@ background: -moz-linear-gradient(top, #003f95 0%, #2a9bd8 59%, #208cca 59%, #00c
   position: relative;
   bottom: 22px;
   background: #e5e5e5;
-  width: 33%;
+  width: 100%;
   float: right; }
   .pagination ul {
     float: right;
@@ -1767,6 +1767,7 @@ img#imgZoom{
 .bank{
   margin-top: 20px;
   padding-left: 10px;
+  text-align: center
 }
 .bank img {margin-bottom: 5px;}
 @media only screen and (max-width: 360px) {
@@ -1786,6 +1787,7 @@ img#imgZoom{
   height: 168px;
   margin-left: 4px;
   float: left;
+  margin-bottom: 5px
 }
 .mg{
   margin-left: 18px;
@@ -1813,3 +1815,8 @@ h1.col-xs-12.col-sm-12{
   font-weight: 600;
   margin-bottom: 22px;
 }
+.toko{text-transform: uppercase;}
+.bx-wrapper .bx-prev{left: -45px !important}
+.bx-wrapper .bx-next{right: -45px !important}
+.center{text-align: center;}
+#captcha{width: 50%}

@@ -55,7 +55,7 @@
                                 <li>
                                     <div class="product-new">
                                         <a href="{{product_url($newproduk)}}">
-                                            {{HTML::image(product_image_url($newproduk->gambar1))}}
+                                            {{HTML::image(product_image_url($newproduk->gambar1,'medium'),$newproduk->nama)}}
                                         </a>
                                         <div class="tab-product-name">
                                             <h3 class="product-name">
@@ -71,7 +71,7 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
+                        <a href="{{url('produk')}}" class="link-more-product">Lihat Semua</a>
                     </div>
                 </div>
                 @endif
@@ -80,7 +80,6 @@
                     <h5 class="col-xs-12 col-sm-12">Koleksi</h5>
                     @foreach (list_koleksi() as $kol)
                     <div class="side-collection">
-                        
                         <div class="col-xs-8 col-sm-8">
                             <a href="{{koleksi_url($kol)}}">{{$kol->nama}}</a>
                         </div>
@@ -96,9 +95,8 @@
                         <form action="#" id="addorder">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    
                                     <div class="zoom-caption">
-                                        <img id="imgZoom" src="{{product_image_url($produk->gambar1)}}" data-zoom-image="{{product_image_url($produk->gambar1)}}">
+                                        <img id="imgZoom" src="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}" alt="{{$produk->nama}}">
                                     </div>
                                     <br>
                                 </div>
@@ -109,25 +107,25 @@
                                             <ul class="caption-thumbnail">
                                                 @if($produk->gambar1 != '')
                                                     <li>
-                                                        <a href="{{product_image_url($produk->gambar1)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar1)}}" data-zoom-image="{{product_image_url($produk->gambar1)}}">
-                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar1,'medium')}}" width="100"></a>
+                                                        <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar1,'large')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}">
+                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar1,'thumb')}}" width="100" alt="{{$produk->nama}}"></a>
                                                     </li>
                                                 @endif
                                                 @if($produk->gambar2 != '')
                                                     <li>
-                                                        <a href="{{product_image_url($produk->gambar2)}}" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar2)}}" data-zoom-image="{{product_image_url($produk->gambar2)}}">
-                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar2,'medium')}}" width="100"></a>
+                                                        <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar2,'large')}}" data-zoom-image="{{product_image_url($produk->gambar2,'large')}}">
+                                                        <img id="img-thumbnail" src="{{product_image_url($produk->gambar2,'thumb')}}" width="100" alt="{{$produk->nama}}"></a>
                                                     </li>
                                                 @endif
                                                 @if($produk->gambar3 != '')
                                                     <li>
-                                                        <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar3)}}" data-zoom-image="{{product_image_url($produk->gambar3)}}">
+                                                        <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar3,'large')}}" data-zoom-image="{{product_image_url($produk->gambar3,'large')}}">
                                                         <img id="img-thumbnail" src="{{product_image_url($produk->gambar3,'medium')}}" width="100"></a>
                                                     </li>
                                                 @endif
                                                 @if($produk->gambar4 != '')
                                                     <li>
-                                                        <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar4)}}" data-zoom-image="{{product_image_url($produk->gambar4)}}">
+                                                        <a href="#" class="elevatezoom-gallery thumbnail-img" data-update="" data-image="{{product_image_url($produk->gambar4,'large')}}" data-zoom-image="{{product_image_url($produk->gambar4,'large')}}">
                                                         <img id="img-thumbnail" src="{{product_image_url($produk->gambar4,'medium')}}" width="100"></a>
                                                     </li>
                                                 @endif
@@ -149,7 +147,7 @@
                                         <div class="tab-quantity">
                                             <h3>Quantity :</h3>
                                             <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
-                                            <input type='text' name='qty' value='0' class='qty' />
+                                            <input type='text' name='qty' value='1' class='qty' />
                                             <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
                                         </div>
                                         <div class="avalaible-text">
@@ -170,7 +168,7 @@
                                 </div>
                             </div>
                             <div class="title-product">
-                            <h1>{{$produk->nama}}</h1>
+                                <h1>{{$produk->nama}}</h1>
                                 @if(!empty($produk->hargaCoret))
                                 <span><del>{{price($produk->hargaCoret)}}</del></span>
                                 @endif
@@ -189,7 +187,7 @@
                                 </div>
                             </div>
                             <div class="tabs-checkout">
-                                <div class="col-xs-12 col-sm-9">
+                                <div class="col-xs-12 col-sm-12">
                                    <div class="sosmed">
                                         {{sosialShare(product_url($produk))}}
                                     </div>

@@ -25,11 +25,11 @@
                     </div>
                     <div class="product">
                         <ul id="tab-product-new">
-                            @foreach(new_product() as $newproduk )
+                            @foreach(new_product() as $newproduk)
                             <li>
                                 <div class="product-new">
                                     <a href="{{product_url($newproduk)}}">
-                                        {{HTML::image(product_image_url($newproduk->gambar1))}}
+                                        {{HTML::image(product_image_url($newproduk->gambar1,'thumb'),$newproduk->nama)}}
                                     </a>
                                     <div class="tab-product-name">
                                         <h3 class="product-name">
@@ -45,7 +45,7 @@
                             </li>
                             @endforeach
                         </ul>
-                        <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
+                        <a href="{{url('produk')}}" class="link-more-product">Lihat Semua</a>
                     </div>
                 </div>
                 @endif
@@ -58,7 +58,7 @@
                         <div class="product">
                             <div class="tips-post">
                                 <h3><a href="{{blog_url($artikel)}}">{{short_description($artikel->judul, 20)}}</a></h3>
-                                <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Read More</a></p>
+                                <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Selengkapnya</a></p>
                                 <span class="date">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                 <div class="banner-left">
                     @foreach(vertical_banner() as $banners)
                         <a href="{{URL::to($banners->url)}}">
-                            {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270'))}}
+                            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270'))}}
                         </a>
                     @endforeach
                 </div>

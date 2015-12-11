@@ -1,16 +1,8 @@
-define(['jquery','bxSlider','noty'], function($)
+define(['jquery','bxSlider'], function($)
 {
     return new function(){
         var self = this;
         self.run = function(){
-            // tampilkan error noty
-            var msg = $('#message');
-            if(msg.length){
-                type = $(msg).attr('class');
-                text = $(msg).html();
-                noty({"text":text,"layout":"top","type":type});    
-            }
-
             //partner slide
             $('.partner').bxSlider({
                 pager:false,

@@ -1,20 +1,3 @@
-@if(Session::has('msg'))
-<div class="success" id='message' style='display:none'>
-	<p>Terima kasih, testimonial anda sudah terkirim.</p>
-</div>
-@endif
-@if($errors->all())
-<div class="error" id='message' style='display:none'>
-	Terjadi kesalahan dalam menyimpan data.<br>
-	<ul>
-    	@foreach($errors->all() as $message)
-		<li>{{ $message }}</li>
-    	@endforeach
-	</ul>
-</div>
-@endif
-
-<!-- Page title -->
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
@@ -68,11 +51,11 @@
                     </div>
                     <div class="product">
                         <ul id="tab-product-new">
-                            @foreach(new_product() as $newproduk )
+                            @foreach(new_product() as $newproduk)
                                 <li>
                                     <div class="product-new">
                                         <a href="{{product_url($newproduk)}}">
-                                            {{HTML::image(product_image_url($newproduk->gambar1))}}
+                                            {{HTML::image(product_image_url($newproduk->gambar1,'medium'), $newproduk->nama)}}
                                         </a>
                                         <div class="tab-product-name">
                                             <h3 class="product-name">
@@ -88,7 +71,7 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <a href="{{url('produk')}}" class="link-more-product">Lebih Banyak</a>
+                        <a href="{{url('produk')}}" class="link-more-product">Lihat Semua</a>
                     </div>
                 </div>
                 @endif
@@ -101,12 +84,12 @@
                         <div class="product">
                             <div class="tips-post">
                                 <h3><a href="{{blog_url($artikel)}}">{{short_description($artikel->judul, 20)}}</a></h3>
-                                <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Read More</a></p>
+                                <p>{{short_description($artikel->isi, 46)}}<a href="{{blog_url($artikel)}}" class="read-more">Selengkapnya</a></p>
                                 <span class="date">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
                             </div>
                         </div>
                     @endforeach
-                </div><!-- end left section -->
+                </div>
                 @endif
                 {{ Theme::partial('subscribe') }}
             </div>
@@ -118,9 +101,7 @@
                         </div>
                         @foreach (list_testimonial() as $items)  
                         <div class="quote-testimo">
-                            <blockquote>
-                                {{$items->isi}}
-                            </blockquote>
+                            <blockquote>{{$items->isi}}</blockquote>
                             <p class="quote"><i class="fa fa-user"></i>&nbsp;&nbsp;{{$items->nama}}</p>
                         </div>
                         @endforeach
@@ -134,12 +115,12 @@
                             <h3 style="margin-top: 1px;margin-bottom: 20px;">Buat Testimonial</h3>
                             <form method="post" action="{{URL::to('testimoni')}}" role="form">
                                 <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" class="form-control" name="nama" required id="name" placeholder="Enter Name">
+                                    <label for="name">Nama Anda</label>
+                                    <input type="text" class="form-control" name="nama" id="name" placeholder="Nama Anda" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Testimonial</label>
-                                    <textarea name="testimonial" required class="form-control" rows="3" placeholder="Enter Massage"></textarea>
+                                    <textarea name="testimonial" class="form-control" rows="3" placeholder="Testimonial anda" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-success">Kirim Testimonial</button>
                                 <button type="reset" class="btn btn-default">Reset</button>
