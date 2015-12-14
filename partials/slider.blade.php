@@ -3,7 +3,11 @@
 		<ul class="bxslider">
 			@foreach (slideshow() as $val)
 			<li>
-                <a href="{{$val->text=='' ? '#' : $val->text}}">
+				@if($val->text == '')
+                <a href="#">
+                @else
+                <a href="{{filter_link_url($val->text)}}" target="_blank">
+                @endif
 					{{HTML::image(slide_image_url($val->gambar), 'slide banner',array('class'=>'slide_gbr'))}}
 				</a>
 			</li>

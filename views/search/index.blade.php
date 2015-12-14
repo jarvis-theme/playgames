@@ -21,7 +21,7 @@
                                 @foreach($side_menu->anak as $submenu)
                                     @if($submenu->parent == $side_menu->id)
                                     <li>
-                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        <a href="{{category_url($submenu)}}" class="transparent">{{$submenu->nama}}</a>
                                         @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
                                             @foreach($submenu->anak as $submenu2)
@@ -122,7 +122,7 @@
                             </div>
                             <div class="tabs-description">
                                 @foreach($hasilhal as $blog)
-                                <article class="col-lg-12" style="margin-bottom:10px">
+                                <article class="col-lg-12 src-result">
                                     <hr>
                                     <h3>{{$blog->judul}}</h3>
                                     <p>
@@ -136,11 +136,11 @@
                                 </article>
                                 @endforeach
                                 @foreach($hasilblog as $blog_result)  
-                                    <article class="col-lg-12" style="margin-bottom:10px">
-                                        <h3 style="margin-bottom: 3px;">
+                                    <article class="col-lg-12 src-result">
+                                        <h3 class="src-title">
                                             <strong><a href="{{blog_url($blog_result)}}">{{$blog_result->judul}}</a></strong>
                                         </h3>
-                                        <p style="margin-bottom: 15px;">
+                                        <p class="meta-src">
                                             <small><i class="fa fa-calendar"></i> {{waktuTgl($blog_result->updated_at)}}</small>&nbsp;&nbsp;
                                             <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog_result->kategori)}}">{{@$blog_result->kategori->nama}}</a></span>
                                         </p>

@@ -21,7 +21,7 @@
                                 @foreach($side_menu->anak as $submenu)
                                     @if($submenu->parent == $side_menu->id)
                                     <li>
-                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        <a href="{{category_url($submenu)}}" class="transparent">{{$submenu->nama}}</a>
                                         @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
                                             @foreach($submenu->anak as $submenu2)
@@ -161,7 +161,7 @@
                                             @endif
                                         </div>
                                         <div class="tab-btn"> 
-                                            <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}">&nbsp;&nbsp;ADD TO CHART</button>
+                                            <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}" alt="checkout">&nbsp;&nbsp;ADD TO CHART</button>
                                         </div>
                                         <br>
                                     </div>
@@ -210,7 +210,7 @@
                                             @endif
                                         @endif
                                         <a href="{{product_url($relproduk)}}">
-                                            <img src="{{product_image_url($relproduk->gambar1)}}">
+                                            <img src="{{product_image_url($relproduk->gambar1)}}" alt="{{$relproduk->nama}}">
                                         </a>
                                         <h2>{{shortDescription($relproduk->nama,22)}}</h2>
                                         <h3><strong>{{price($relproduk->hargaJual)}}</strong></h3>

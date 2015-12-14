@@ -11,7 +11,7 @@
             @foreach(new_product() as $newproduk)
             <div class="post">
                 <a href="{{product_url($newproduk)}}">
-                    {{HTML::image(product_image_url($newproduk->gambar1,'medium'))}}
+                    {{HTML::image(product_image_url($newproduk->gambar1,'medium'), $newproduk->nama)}}
                 </a>
                 <div class="tab-title">
                     <h2>{{short_description($newproduk->nama,22)}}</h2>
@@ -30,7 +30,7 @@
             @foreach(home_product() as $homeproduk)
             <div class="post">
                 <a href="{{product_url($homeproduk)}}">
-                    {{HTML::image(product_image_url($homeproduk->gambar1,'medium'))}}
+                    {{HTML::image(product_image_url($homeproduk->gambar1,'medium'), $homeproduk->nama)}}
                 </a>
                 <div class="tab-title">
                     <h2>{{short_description($homeproduk->nama,22)}}</h2>
@@ -49,7 +49,7 @@
             @foreach(list_product() as $listproduk)
             <div class="post">
                 <a href="{{product_url($listproduk)}}">
-                    {{HTML::image(product_image_url($listproduk->gambar1,'medium'))}}
+                    {{HTML::image(product_image_url($listproduk->gambar1,'medium'), $listproduk->nama)}}
                 </a>
                 <div class="tab-title">
                     <h2>{{short_description($listproduk->nama,22)}}</h2>

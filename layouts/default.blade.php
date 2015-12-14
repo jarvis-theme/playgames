@@ -7,14 +7,11 @@
     <body>
         <div class="container">
             {{ Theme::partial('header') }} 
-            {{-- Theme::partial('slider') --}} 
             {{ Theme::place('content') }}  
             {{ Theme::partial('footer') }} 
         </div>
 
         {{ Theme::partial('defaultjs') }}
-        {{-- Theme::asset()->scripts() --}}
-        {{-- Theme::asset()->container('footer')->scripts() --}}
         {{ Theme::partial('analytic') }}
     </body>
 </html>

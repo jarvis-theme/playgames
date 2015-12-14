@@ -103,7 +103,7 @@
                                 @endif
                                 @if(isset($next))
                                     <div class="pull-right">
-                                    <a style="float: right;" href="{{$next->slug}}">Selanjutnya &rarr;</a>
+                                    <a class="pull-right" href="{{$next->slug}}">Selanjutnya &rarr;</a>
                                     </div>
                                 @else
                                     <div class="pull-right"></div>

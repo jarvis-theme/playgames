@@ -10,7 +10,7 @@
             </h1>
         </div>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4 col-md-3 col-lg-3">
                 @if(count(list_category()) > 0)
                 <div class="left-sidebar">
                     <ul id="category">
@@ -28,7 +28,7 @@
                                 @foreach($side_menu->anak as $submenu)
                                     @if($submenu->parent == $side_menu->id)
                                     <li>
-                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        <a href="{{category_url($submenu)}}" class="transparent">{{$submenu->nama}}</a>
                                         @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
                                             @foreach($submenu->anak as $submenu2)
@@ -122,7 +122,7 @@
                 @endif
                 {{ Theme::partial('subscribe') }}
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
                 <div class="row">
                     @if(count(list_product(null, @$category, @$collection)) > 0)
                     <div id="single-categories">

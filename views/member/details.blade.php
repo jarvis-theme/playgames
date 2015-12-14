@@ -84,7 +84,7 @@
                                         @endif
                                     @endif
                                     </td>
-                                    <td style="text-align: center;">
+                                    <td class="center">
                                     @if($pengaturan->checkoutType==3) 
                                         @if($item->status < 4)
                                         <button onclick="window.open('{{url('konfirmasipreorder/'.$item->id)}}','_blank')" class="btn btn-small btn-success" data-title="Edit" data-placement="top" data-tip="tooltip"><i class="fa fa-check"></i></button>

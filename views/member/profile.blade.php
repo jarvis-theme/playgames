@@ -74,13 +74,13 @@
                     <div class="form-group">
                         <label for="inputUsername" class="col-md-2 control-label">Password Baru</label>
                         <div class="col-md-4">
-                            <input type="password" class="field-reg" name="password" id="inputUsername" placeholder="Password">
+                            <input type="password" class="field-reg" name="password" id="inputUsername" placeholder="Password Baru">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword" class="col-md-2 control-label">Ulang Password</label>
                         <div class="col-md-4">
-                            <input type="password" class="field-reg" name="password_confirmation" id="inputPassword" placeholder="Ullang Password">
+                            <input type="password" class="field-reg" name="password_confirmation" id="inputPassword" placeholder="Ulang Password">
                         </div>
                     </div>
                     <hr />

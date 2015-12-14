@@ -98,10 +98,8 @@
                                     </p>
                                 @endforeach
                                 {{list_blog(null,@$blog_category)->links()}}
-                             @else
-                            <article style="font-style:italic; text-align:center;">
-                                Blog tidak ditemukan.
-                            </article>
+                            @else
+                            <article class="noresult">Blog tidak ditemukan.</article>
                         @endif
                         </div>
                     </div>

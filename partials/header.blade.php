@@ -62,7 +62,7 @@
             </li>
         </ul>
         <form action="{{url('search')}}" method="post" class="form-search">
-            <input type="text" name="search" class="text-search" placeholder="Cari" required>
+            <input type="text" name="search" class="text-search" placeholder="Cari Produk" required>
             <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
         </form>
     </div>

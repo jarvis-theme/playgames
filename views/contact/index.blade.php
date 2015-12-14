@@ -1,7 +1,7 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Kategori</h1>
+            <h1 class="center">Hubungi Kami</h1>
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -21,7 +21,7 @@
                                 @foreach($side_menu->anak as $submenu)
                                     @if($submenu->parent == $side_menu->id)
                                     <li>
-                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        <a href="{{category_url($submenu)}}" class="transparent">{{$submenu->nama}}</a>
                                         @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
                                             @foreach($submenu->anak as $submenu2)
@@ -106,16 +106,16 @@
                 <div class="row">
                     <div id="single-typical" class="kontak">
                         <div class="tabs-title-typical">
-                            <h1>Kontak</h1>
+                            <!-- <h1>Kontak</h1> -->
                         </div>
                         <div class="tabs-description">
-                            <div class="col-md-12 col-xs-12" style="margin-bottom:30px;">         
+                            <div class="col-md-12 col-xs-12" id="map-info">
                                 <div class="maps" >
                                     <h2 class="title"></h2>
                                     @if($kontak->lat!='0' || $kontak->lng!='0')
-                                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
+                                        <iframe class="map-detail" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
                                     @else
-                                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
+                                        <iframe class="map-detail" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq={{ $kontak->alamat }}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
                                     @endif
                                 </div>
                             </div>

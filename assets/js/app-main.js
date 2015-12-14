@@ -2,7 +2,7 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 
 require.config({
 	baseUrl: '/',
-    urlArgs: "v=002",
+    urlArgs: "v=004",
     waitSeconds : 30,
 	shim: {
 		'jq_ui' : {
@@ -33,7 +33,6 @@ require.config({
 
 		// CONTROLLER
 		home            : dirTema+'/assets/js/pages/home',
-		// member          : dirTema+'/assets/js/pages/member',
 		main            : dirTema+'/assets/js/pages/default',
 		produk          : dirTema+'/assets/js/pages/produk',
 	}
@@ -47,9 +46,6 @@ require([
 	// HOME
 	router.define('/','home@run');
 	router.define('home', 'home@run');
-
-	// MEMBER
-	// router.define('member/*', 'member@run');
 
 	// PRODUK
 	router.define('produk/*', 'produk@run');

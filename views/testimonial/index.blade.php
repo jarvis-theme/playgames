@@ -1,7 +1,7 @@
 <div class="row">
     <div id="content">
         <div class="tab-title-top">
-            <h1>Kategori</h1>
+            <h1 class="center">Testimonial</h1>
         </div>
         <div class="row">
              <div class="col-sm-3">
@@ -21,7 +21,7 @@
                                 @foreach($side_menu->anak as $submenu)
                                     @if($submenu->parent == $side_menu->id)
                                     <li>
-                                        <a href="{{category_url($submenu)}}" style="background-color:transparent">{{$submenu->nama}}</a>
+                                        <a href="{{category_url($submenu)}}" class="transparent">{{$submenu->nama}}</a>
                                         @if($submenu->anak->count() != 0)
                                         <ul id="submenu-left">
                                             @foreach($submenu->anak as $submenu2)
@@ -93,12 +93,12 @@
                 @endif
                 {{ Theme::partial('subscribe') }}
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-9 col-xs-11">
                 <div class="row">
                     <div id="single-typical">
-                        <div class="tabs-title-typical">
+                        <!-- <div class="tabs-title-typical">
                             <h1>Testimonial</h1>
-                        </div>
+                        </div> -->
                         @foreach (list_testimonial() as $items)  
                         <div class="quote-testimo">
                             <blockquote>{{$items->isi}}</blockquote>
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                         <div class="respond col-md-6">
-                            <h3 style="margin-top: 1px;margin-bottom: 20px;">Buat Testimonial</h3>
+                            <h3 id="testimo">Buat Testimonial</h3>
                             <form method="post" action="{{URL::to('testimoni')}}" role="form">
                                 <div class="form-group">
                                     <label for="name">Nama Anda</label>
