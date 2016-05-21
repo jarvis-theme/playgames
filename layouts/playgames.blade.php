@@ -1,18 +1,19 @@
+<!DOCTYPE html>
 <html>
     <head>
         {{ Theme::partial('seostuff') }} 
-        {{ Theme::partial('defaultcss') }}  
+        {{ Theme::partial('defaultcss') }} 
         {{ Theme::asset()->styles() }} 
     </head>
     <body>
         <div class="container">
             {{ Theme::partial('header') }} 
             {{ Theme::partial('slider') }} 
-            {{ Theme::place('content') }}  
+            {{ Theme::place('content') }} 
             {{ Theme::partial('footer') }} 
         </div>
 
-        {{ Theme::partial('defaultjs') }}
-        {{ Theme::partial('analytic') }}
+        {{ Theme::partial('defaultjs') }} 
+        {{ Theme::partial('analytic') }} 
     </body>
 </html>

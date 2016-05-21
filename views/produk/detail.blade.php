@@ -146,9 +146,9 @@
                                         </div>
                                         <div class="tab-quantity">
                                             <h3>Quantity :</h3>
-                                            <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
-                                            <input type='text' name='qty' value='1' class='qty' />
-                                            <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
+                                            <button type="submit" class="qtyminus" field="qty" /><i class="fa fa-caret-left"></i></button>
+                                            <input type="text" name="qty" value="1" class="qty" />
+                                            <button type="button" value="+" class="qtyplus" field="qty" /><i class="fa fa-caret-right"></i></button>
                                         </div>
                                         <div class="avalaible-text">
                                             @if($produk->stok > 0)
@@ -183,13 +183,13 @@
                                     {{$produk->deskripsi}}
                                 </div>
                                 <div id="tab-2" class="tab-content">
-                                    <p>{{pluginTrustklik()}}</p>
+                                    <p>{{ pluginComment(product_url($produk), @$produk) }}</p>
                                 </div>
                             </div>
                             <div class="tabs-checkout">
                                 <div class="col-xs-12 col-sm-12">
                                    <div class="sosmed">
-                                        {{sosialShare(product_url($produk))}}
+                                        {{sosialShare(product_url($produk))}} 
                                     </div>
                                 </div>
                             </div>
