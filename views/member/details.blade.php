@@ -5,8 +5,8 @@
         </div>
 
         <div class="register-page">
-            <div id="left_sidebar" class="col-md-3">
-                <div id="advertising" class="block">
+            <div id="left_sidebar" class="col-md-3 sidemenu">
+                <div class="block">
                     <div class="title"><h2>My Account</h2></div>
                         <ul class="nav">
                             <li><a href="{{url('member')}}">Order History</a></li>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
 
-                <div id="center_column" class="col-md-9">
+                <div id="center_column" class="{{$order->count()>0 ? 'col-md-9' : 'col-md-8'}}">
                 @if($pengaturan->checkoutType!=2)
                     @if($order->count())
                     <div class="table-responsive">
@@ -105,7 +105,7 @@
                         {{list_order()->links()}}
                     </div>
                     @else
-                    <span> Belum ada data order</span>
+                    <div class="empty-order"> Belum ada order</div>
                     @endif
                 @else 
                     @if($inquiry->count()!=0)

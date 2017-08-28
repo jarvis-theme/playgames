@@ -4,7 +4,7 @@
             <h1>Detail Produk</h1>
         </div>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-lg-3">
                 @if(count(list_category()) > 0)
                 <div class="left-sidebar">
                     <ul id="category">
@@ -89,20 +89,19 @@
                 </div>
                 @endif
             </div>
-            <div class="col-sm-9">
+            <div class="col-lg-9">
                 <div class="row">
                     <div id="detail-product">
                         <form action="#" id="addorder">
                             <div class="row">
-                                <div class="col-sm-5">
+                                <div class="col-lg-5">
                                     <div class="zoom-caption">
-                                        <img id="imgZoom" src="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}" alt="{{$produk->nama}}">
+                                        <img id="imgZoom" class="img-responsive" src="{{product_image_url($produk->gambar1,'medium')}}" data-zoom-image="{{product_image_url($produk->gambar1,'large')}}" alt="{{$produk->nama}}">
                                     </div>
                                     <br>
                                 </div>
-                                <div class="col-sm-7">
+                                <div class="col-lg-6">
                                     <div class="tabs-caption">
-                                        <h2>Screenshot</h2>
                                         <div id="product_detail">
                                             <ul class="caption-thumbnail">
                                                 @if($produk->gambar1 != '')
@@ -131,6 +130,23 @@
                                                 @endif
                                             </ul>
                                         </div>
+                                        <div class="title-product">
+                                            <h1>{{$produk->nama}}</h1>
+                                            @if(!empty($produk->hargaCoret))
+                                            <span><del>{{price($produk->hargaCoret)}}</del></span>
+                                            @endif
+                                            <h2>{{price($produk->hargaJual)}}</h2>
+                                        </div>
+                                        <div class="avalaible-text">
+                                            @if($produk->stok > 0)
+                                                <span>
+                                                    <i class="ceklist fa fa-check"></i>
+                                                </span>
+                                                <span>Avalaible Stok, <span class="text-color">{{$produk->stok}} item</span></span>
+                                            @else
+                                                <span class="text-color">Out of stock</span>
+                                            @endif
+                                        </div>
                                         <div class="tab-quantity">
                                             @if($opsiproduk->count() > 0)
                                                 <h3>Opsi :</h3>
@@ -145,39 +161,22 @@
                                             @endif
                                         </div>
                                         <div class="tab-quantity">
-                                            <h3>Quantity :</h3>
+                                            <h3>Jumlah :</h3>
                                             <button type="submit" class="qtyminus" field="qty" /><i class="fa fa-caret-left"></i></button>
-                                            <input type="text" name="qty" value="1" class="qty" />
+                                            <input type="number" name="qty" value="1" class="qty" pattern="[0-9]" />
                                             <button type="button" value="+" class="qtyplus" field="qty" /><i class="fa fa-caret-right"></i></button>
                                         </div>
-                                        <div class="avalaible-text">
-                                            @if($produk->stok > 0)
-                                                <span>
-                                                    <i class="ceklist fa fa-check"></i>
-                                                </span>
-                                                <span>Avalaible Stok, <span class="text-color">{{$produk->stok}} item</span></span>
-                                            @else
-                                                <span class="text-color">Out of stock</span>
-                                            @endif
-                                        </div>
                                         <div class="tab-btn"> 
-                                            <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}" alt="checkout">&nbsp;&nbsp;ADD TO CHART</button>
+                                            <button class="baddtocart btn-checkout chart" type="submit"><img src="{{url(dirTemaToko().'playgames/assets/img/checkout.png')}}" alt="checkout">&nbsp;&nbsp;Beli</button>
                                         </div>
                                         <br>
                                     </div>
                                 </div>
                             </div>
-                            <div class="title-product">
-                                <h1>{{$produk->nama}}</h1>
-                                @if(!empty($produk->hargaCoret))
-                                <span><del>{{price($produk->hargaCoret)}}</del></span>
-                                @endif
-                                <h2>{{price($produk->hargaJual)}}</h2>
-                            </div>
                             <div class="tabs-option-category">
                                 <ul class="tabs">
                                     <li class="tab-link current" data-tab="tab-1">Deskripsi Produk</li>
-                                    <li class="tab-link" data-tab="tab-2">Preview</li>
+                                    <li class="tab-link" data-tab="tab-2">Review</li>
                                 </ul>
                                 <div id="tab-1" class="tab-content current">
                                     {{$produk->deskripsi}}

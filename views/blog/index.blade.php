@@ -69,7 +69,7 @@
                 <div class="banner-left">
                     @foreach(vertical_banner() as $banners)
                         <a href="{{URL::to($banners->url)}}">
-                            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270'))}}
+                            {{HTML::image(banner_image_url($banners->gambar),'Info Promo')}}
                         </a>
                     @endforeach
                 </div>
@@ -85,7 +85,7 @@
                             <div class="tabs-description">
                             @if(count(list_blog(null,@$blog_category)) > 0)
                                 @foreach(list_blog(null,@$blog_category) as $blogs)
-                                    <h1>{{$blogs->judul}}</h1>
+                                    <a href="{{ blog_url($blogs) }}"><h1 class="title">{{$blogs->judul}}</h1></a>
                                     <p>
                                         <small><i class="fa fa-calendar"></i> {{waktuTgl($blogs->created_at)}}</small>&nbsp;&nbsp;
                                         @if(!empty($blogs->kategori->nama))

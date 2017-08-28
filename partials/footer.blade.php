@@ -58,9 +58,6 @@
                         @if(!empty($kontak->bb))
                         <li><i class="fa fa-circle"></i> <a href="#"> {{$kontak->bb}} (BBM)</a></li>
                         @endif
-                        @if(!empty($kontak->ym))
-                        <li><i class="fa fa-circle"></i> {{ymyahoo($kontak->ym)}}</li>
-                        @endif
                     </ul>
                 </div>
                 <div class="link">
@@ -100,7 +97,7 @@
                 <img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
                 @endif
                 @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
-                <img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans">
+                <img class="midtrans" src="{{url('img/bank/midtrans.png')}}" alt="Midtrans" title="Midtrans">
                 @endif
             </div>
             <div class="copyright">
@@ -139,6 +136,11 @@
                 <a href="{{url($kontak->ig)}}">
                     <div class="icon" title="Instagram"><i class="fa fa-instagram"></i></div>
                 </a>
+                @endif
+                <a href="{{--url($kontak->picmix)--}}" target="_blank">
+                    <img class="picmix" src="//d3kamn3rg2loz7.cloudfront.net/blogs/event/icon-picmix.png">
+                </a>
+                @if(!empty($kontak->picmix))
                 @endif
             </div>
         </div>

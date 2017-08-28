@@ -154,6 +154,7 @@
                                             <button class="btn btn-success submitnewletter">Kirim</button>
                                         </form>
                                     </div>
+                                    <br>
                                 <!-- </div> -->
                             </div>
                         </div>

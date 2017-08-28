@@ -9,8 +9,7 @@
                 <div class="col-sm-6">
                     <div class="login-desc">
                         <h1>Pelanggan Baru</h1>
-                        <h2>Segeralah mendaftar</h2>
-                        <span>Dengan mendaftar, anda dapat berbelanja dengan lebih cepat!! ayo!!</span>
+                        <h2 class="mt10">Segeralah mendaftar</h2>
                     </div>
                     <div class="tabs-btn-login">
                         <a href="{{url('member/create')}}" class="register">Register</a>
@@ -22,10 +21,10 @@
                         <form action="{{url('member/login')}}" method="post" enctype="multipart/form-data">
                             <div class="content-login">
                                 <b>Email</b><br>
-                                <input type="text" placeholder="Email" name="email" class="large-input" value="{{Input::old('email')}}" required>
+                                <input type="text" name="email" class="large-input" value="{{Input::old('email')}}" autofocus required>
                                 <br><br>
                                 <b>Password</b><br>
-                                <input type="password" placeholder="Password" name="password" class="large-input" required>
+                                <input type="password" name="password" class="large-input" required>
                                 <br>
                                 <a href="{{url('member/forget-password')}}" class="forgot">Lupa Password?</a><br>
                                 <br>

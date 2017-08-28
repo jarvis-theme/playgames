@@ -52,7 +52,7 @@
                         {{Form::text('captcha','',array('class'=>'field-reg','id'=>'captcha'))}}</td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input type="checkbox" name="readme" id="inlineCheckbox1" value="1" required> Saya telah membaca dan menyetujui 
+                        <td colspan="2"><input type="checkbox" name="readme" id="inlineCheckbox1" value="1" required checked> Saya telah membaca dan menyetujui 
                         <a href="{{url('service')}}" target="_blank">Persyaratan Member</a></td><td>&nbsp;</td>
                     </tr>
                     <tr>

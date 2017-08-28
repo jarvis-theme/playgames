@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 p0">
         <div id="sign-up">
             @if( is_login() )
             <div class="account">
